@@ -1,0 +1,30 @@
+#navbar-container {
+  /* border: 1px solid purple; */
+  width: 100%;
+}
+
+#list-div {
+  display: flex;
+  justify-content: right;
+  /* padding: .5vw 4vw; */
+  /* border: 1px solid green; */
+  width: 100%;
+}
+
+ul {
+  height: 1vw;
+  width: 60vw;
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid orange; */
+  margin-right: 4vw;
+}
+
+li {
+  list-style-type: none;
+}
+
+li:hover {
+  z-index: 3;
+  opacity: 70%;
+}
