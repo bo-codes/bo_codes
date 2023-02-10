@@ -5,11 +5,11 @@ function NavBar() {
     <div id="navbar-container">
       <div id="list-div">
         <ul>
-          <li>About</li>
-          <li>Experience</li>
-          <li>Skills</li>
-          <li>Projects</li>
-          <li>Contact</li>
+          <li>ABOUT</li>
+          <li>EXPERIENCE</li>
+          <li>SKILLS</li>
+          <li>PROJECTS</li>
+          <li>CONTACT</li>
         </ul>
       </div>
     </div>

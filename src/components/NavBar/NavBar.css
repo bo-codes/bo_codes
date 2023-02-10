@@ -21,10 +21,27 @@ ul {
 }
 
 li {
+  font-size: 15px;
+  font-family: "adaptive-mono", monospace;
+  letter-spacing: 1.2px;
   list-style-type: none;
+  text-shadow:
+      0 0 .5px rgba(255, 255, 255, 0.519),
+      0 0 1px rgba(255, 255, 255, 0.583),
+      0 0 1px rgba(255, 255, 255, 0.555),
+      0 0 2px rgba(255, 255, 255, 0.434),
+      0 0 2px rgb(255, 255, 255);
 }
 
 li:hover {
   z-index: 3;
-  opacity: 70%;
+  opacity: 60%;
+  filter: blur(.4px);
+  text-shadow:
+      0 0 8px rgba(255, 255, 255, 0.519),
+      0 0 18px rgba(255, 255, 255, 0.583),
+      0 0 28px rgba(255, 255, 255, 0.555),
+      0 0 28px rgba(255, 255, 255, 0.434),
+      0 0 32px rgb(255, 255, 255);
+  cursor: pointer;
 }

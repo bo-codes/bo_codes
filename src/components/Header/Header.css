@@ -1,5 +1,5 @@
 #screen {
-  height: 30vw;
+  height: 40vw;
   display: flex;
   flex-direction: column;
   justify-content: top;
@@ -8,21 +8,34 @@
   /* animation: glitch 0.15s infinite; */
 }
 
+#screen:hover {
+  cursor: default;
+}
+
 #screen-text {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 17vw;
   /* border: 1px solid red; */
+  height: 100%;
   width: 100%;
+  text-shadow:
+      0 0 5px rgba(255, 255, 255, 0.519),
+      0 0 6px rgba(255, 255, 255, 0.583),
+      0 0 6px rgba(255, 255, 255, 0.555),
+      0 0 6px rgba(255, 255, 255, 0.434),
+      0 0 11px rgb(255, 255, 255);
+}
+#screen-text:hover {
+  cursor: default;
 }
 
 /* flicker */
 #screen::after {
   position: absolute;
   z-index: 2;
-  /* top: 0; */
-  height: 30vw;
+  height: 40vw;
   width: 100%;
   /* top: 0;
   right: 0;
@@ -40,9 +53,8 @@
 #screen::before {
   position: absolute;
   z-index: 2;
-  height: 30vw;
+  height: 40vw;
   width: 100%;
-  /* top: 0; */
   /* top: 0;
   right: 0;
   bottom: 0; */
