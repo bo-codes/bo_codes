@@ -3,6 +3,11 @@
   width: 100%;
 }
 
+.navbar-option {
+  text-decoration: none;
+  color: white;
+}
+
 #list-div {
   display: flex;
   justify-content: right;
@@ -26,16 +31,16 @@ li {
   letter-spacing: 1.2px;
   list-style-type: none;
   text-shadow:
-      0 0 .5px rgba(255, 255, 255, 0.519),
-      0 0 1px rgba(255, 255, 255, 0.583),
-      0 0 1px rgba(255, 255, 255, 0.555),
-      0 0 2px rgba(255, 255, 255, 0.434),
+      0 0 .5px rgba(255, 255, 255, 0.575),
+      0 0 1px rgba(255, 255, 255, 0.599),
+      0 0 1px rgba(255, 255, 255, 0.6),
+      0 0 2px rgba(255, 255, 255, 0.526),
       0 0 2px rgb(255, 255, 255);
 }
 
 li:hover {
   z-index: 3;
-  opacity: 60%;
+  opacity: 65%;
   filter: blur(.4px);
   text-shadow:
       0 0 8px rgba(255, 255, 255, 0.519),

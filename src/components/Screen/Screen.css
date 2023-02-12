@@ -12,12 +12,10 @@
   cursor: default;
 }
 
-#screen-text {
+.screen-content {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 17vw;
-  /* border: 1px solid red; */
   height: 100%;
   width: 100%;
   text-shadow:
@@ -26,7 +24,9 @@
       0 0 6px rgba(255, 255, 255, 0.555),
       0 0 6px rgba(255, 255, 255, 0.434),
       0 0 11px rgb(255, 255, 255);
+  /* border: 1px solid greenyellow; */
 }
+
 #screen-text:hover {
   cursor: default;
 }
@@ -287,5 +287,33 @@
   100% {
     text-shadow: 2.6208764473832513px 0 1px rgba(0, 30, 255, 0.5), -2.6208764473832513px 0 1px rgba(255, 0, 80, 0.3),
       0 0 3px;
+  }
+}
+
+/* STATIC CODE */
+.static {
+  height: 40vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+  background-image: repeating-radial-gradient(circle at 30% 30%, white, black 0.00035px);
+  animation: tv-static 5s linear infinite;
+  filter: blur(.5px);
+  box-shadow:
+      0 0 55px rgba(255, 255, 255, 0.318),
+      0 0 56px rgba(255, 255, 255, 0.275),
+      0 0 56px rgba(255, 255, 255, 0.253),
+      0 0 56px rgba(255, 255, 255, 0.276),
+      0 0 51px rgba(255, 255, 255, 0.311);
+}
+
+@keyframes tv-static {
+  from {
+    background-size: 18% 18%;
+  }
+
+  to {
+    background-size: 15% 15%;
   }
 }
