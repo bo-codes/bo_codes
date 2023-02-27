@@ -1,0 +1,79 @@
+#aboutpage-text {
+  /* height: 100%;
+  width: 100%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid red; */
+}
+
+#aboutpage-experience {
+  font-size: 12vw;
+}
+
+/* #about-container {
+  width: 100%;
+  height: 100%;
+  margin: 6vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#about-photo {
+  height: 22vw;
+  width: 22vw;
+  background-size: cover;
+  background-position: center;
+}
+
+#about-descr {
+  height: 22vw;
+  width: 55vw;
+}
+
+#about-name {
+  font-size: 3vw;
+  letter-spacing: .2vw;
+  text-shadow:
+      0 0 2px rgba(255, 255, 255, 0.655),
+      0 0 5px rgba(255, 255, 255, 0.461),
+      0 0 4px rgba(255, 255, 255, 0.571),
+      0 0 6px rgba(255, 255, 255, 0.506),
+      0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+.about-p {
+  font-size: 1.2vw;
+  letter-spacing: .04vw;
+  margin-top: 1.6vw;
+  text-shadow:
+      0 0 1px rgba(255, 255, 255, 0.493),
+      0 0 2px rgba(255, 255, 255, 0.447),
+      0 0 2px rgba(255, 255, 255, 0.508),
+      0 0 3px rgba(255, 255, 255, 0.436),
+      0 0 4px rgba(255, 255, 255, 0.53);
+}
+
+#about-descr-p1 {
+
+}
+
+#about-descr-p2 {
+
+}
+
+#about-descr-p3 {
+
+}
+
+.word-emphasis {
+  color: rgb(0, 234, 255);
+  text-shadow:
+      0 0 1px rgba(86, 255, 238, 0.493),
+      0 0 2px rgba(0, 255, 238, 0.447),
+      0 0 2px rgba(0, 255, 238, 0.508),
+      0 0 3px rgba(0, 255, 238, 0.436),
+      0 0 4px rgba(0, 255, 238, 0.53);
+} */

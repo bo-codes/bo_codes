@@ -1,11 +1,19 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage/HomePage";
+import AboutPage from "./pages/AboutPage/AboutPage";
+import ExperiencePage from "./pages/ExperiencePage/ExperiencePage";
+import SkillsPage from "./pages/SkillsPage/SkillsPage";
+import ProjectsPage from "./pages/ProjectsPage/ProejctsPage";
+import ContactPage from "./pages/ContactPage/ContactPage";
 import Screen from "./components/Screen/Screen";
-import useNavigation from "./hooks/use-navigation";
+
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
-  const {currentPath} = useNavigation();
+  const location = useLocation();
 
   useEffect(() => {
     setIsLoading(true)
@@ -16,14 +24,19 @@ function App() {
     return () =>  {
       clearInterval(loadingInterval);
     }
-  }, [currentPath]);
+  }, [location]);
 
   return (
     <>
-      {/* <div>{window.location.pathname}</div> */}
-      {/* <div>{currentPath}</div> */}
       {isLoading ? <div className="static"></div> : <Screen />}
-      {/* <Screen /> */}
+      <Routes>
+        <Route path="/" exact={true} element={<HomePage />} />
+        <Route path="/about" exact={true} element={<AboutPage />} />
+        <Route path="/experience" exact={true} element={<ExperiencePage />} />
+        <Route path="/skills" exact={true} element={<SkillsPage />} />
+        <Route path="/projects" exact={true} element={<ProjectsPage />} />
+        <Route path="/contact" exact={true} element={<ContactPage />} />
+      </Routes>
     </>
   );
 }

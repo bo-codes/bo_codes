@@ -317,3 +317,24 @@
     background-size: 15% 15%;
   }
 }
+
+
+/* SCREEN-TEXT */
+#screen-text {
+  height: 100%;
+  width: 100%;
+  /* position: absolute; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid red; */
+}
+
+#screen-bobo-title {
+  font-size: 17vw;
+}
+
+#screen-page-title {
+  font-size: 14vw;
+}

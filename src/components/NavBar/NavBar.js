@@ -1,40 +1,49 @@
-import Link from "../Link/Link";
+import { Link, NavLink } from "react-router-dom";
 import "./NavBar.css";
 
 function NavBar() {
-
-  // const onNav = (url) => {
-  //   window.history.pushState({}, '', url)
-  // }
 
   return (
     <div id="navbar-container">
       <div id="list-div">
         <ul>
           <li>
-            <Link to="/about">
-                ABOUT
-            </Link>
+            <NavLink
+              to="/"
+              className="navbar-option"
+              // style={({ isActive }) => ( isActive && {textShadow: "0px 0px 40px rgba(255, 255, 255, 1), 0 0 .6em white, 0 0 1em white"})}
+            >
+              /
+            </NavLink>
           </li>
           <li>
-            <Link to="/experience">
+            <NavLink
+              to="/about"
+              className="navbar-option"
+              // style={({ isActive }) => ( isActive && {textShadow: "0px 0px 40px rgba(255, 255, 255, 1), 0 0 .6em white, 0 0 1em white"})}
+            >
+              ABOUT
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/experience" className="navbar-option">
               EXPERIENCE
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/skills">
+            <NavLink to="/skills" className="navbar-option">
               SKILLS
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/projects">
+            <NavLink to="/projects" className="navbar-option">
               PROJECTS
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/contact">
+            <NavLink to="/contact" className="navbar-option">
               CONTACT
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>
