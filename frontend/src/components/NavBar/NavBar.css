@@ -6,6 +6,7 @@
 .navbar-option {
   text-decoration: none;
   color: white;
+  /* WHITE CURSOR */
   cursor: url("../../img/cursors/Cross.cur"), auto;
 }
 

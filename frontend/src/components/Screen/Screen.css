@@ -7,6 +7,7 @@
   align-items: center;
   /* border: 1px solid blue; */
   /* animation: glitch 0.15s infinite; */
+  /* GREEN CURSOR */
   cursor: url("../../img/cursors/CrosshairNormal.cur"), auto;
 }
 
@@ -348,7 +349,8 @@
   font-size: 14vw;
 }
 
-#channel-text {
+/* GREEN CHANNEL TEXT */
+/* #channel-text {
   position: absolute;
   top: .7vw;
   right: 2.6vw;
@@ -360,4 +362,19 @@
       0 0 6px rgba(95, 253, 81, 0.773),
       0 0 6px rgba(95, 253, 81, 0.745),
       0 0 11px rgb(255, 255, 255);
+} */
+
+/* WHITE CHANNEL TEXT */
+#channel-text {
+  position: absolute;
+  top: .7vw;
+  right: 2.6vw;
+  font-size: 3vw;
+  color: rgb(251, 251, 251);
+  text-shadow:
+      0 0 5px rgba(255, 255, 255, 0.771),
+      0 0 4px rgba(255, 255, 255, 0.812),
+      0 0 4px rgba(255, 255, 255, 0.816),
+      0 0 4px rgba(255, 255, 255, 0.751),
+      0 0 6px rgb(255, 255, 255);
 }
