@@ -5,7 +5,6 @@ import App from './App'
 import GithubSection from "./components/githubSection/GithubSection";
 import { NavigationProvider } from "./context/navigation";
 import "./index.css"
-import './store'
 
 
 const el = document.getElementById('root');

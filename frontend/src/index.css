@@ -5,6 +5,10 @@ body {
   cursor: url("./img/cursors/blur.cur"), auto;
 }
 
+button {
+  cursor: url("./img//cursors/blur_pointer.cur"), auto;
+}
+
 @keyframes screenTurnOn {
   0% {
 

@@ -11,7 +11,7 @@ function Screen() {
 
   const currLocation = useLocation();
 
-  console.log(currLocation.pathname);
+  // console.log(currLocation.pathname);
 
   switch (currLocation.pathname) {
     case "/":

@@ -13,6 +13,7 @@ function AboutPage() {
       ></div>
       <div id="about-descr">
         <h1 id="about-name">ELI</h1>
+        <button>bobo</button>
         <div id="about-descr-p1" className="about-p">
           A <span className="word-emphasis">Software Engineer</span> with a
           background in{" "}
