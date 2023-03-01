@@ -31,7 +31,7 @@ app.get(
   "/api/gh-repos",
   asyncHandler(async (req, res) => {
     const octokit = new Octokit({
-      auth: "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",
+      auth: "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",
     });
 
     const data1 = await octokit.request("GET /users/bo-codes/repos", {

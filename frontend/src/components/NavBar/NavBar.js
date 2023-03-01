@@ -6,7 +6,7 @@ function NavBar() {
   return (
     <div id="navbar-container">
       <div id="list-div">
-        <ul>
+        <ul id="navbar-list">
           <li>
             <NavLink
               to="/"

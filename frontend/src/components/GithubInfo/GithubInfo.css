@@ -1,0 +1,29 @@
+#repos-section {
+  /* border: 1px solid purple; */
+  margin-left: 2vw;
+}
+
+#repo-list-container {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  margin-top: 2vw;
+  /* height: auto; */
+  padding: 0;
+}
+
+#currently-working-on {
+  /* border: 1px solid seagreen; */
+  font-size: 1.1vw;
+}
+
+#repo-link-container {
+  padding-bottom: .9vw;
+}
+
+#repo-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1vw;
+  /* border: 1px solid skyblue; */
+}

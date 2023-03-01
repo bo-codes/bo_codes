@@ -8,6 +8,7 @@
   color: white;
   /* WHITE CURSOR */
   cursor: url("../../img/cursors/Cross.cur"), auto;
+  /* font-size: 1.2vw; */
 }
 
 #list-div {
@@ -18,7 +19,7 @@
   width: 100%;
 }
 
-ul {
+#navbar-list {
   height: 1vw;
   width: 60vw;
   display: flex;
@@ -27,7 +28,7 @@ ul {
   margin-right: 4vw;
 }
 
-li {
+ li {
   font-size: 1.9vw;
   font-family: "adaptive-mono", monospace;
   letter-spacing: 1.2px;
@@ -40,7 +41,7 @@ li {
       0 0 2px rgb(255, 255, 255);
 }
 
-li:hover {
+#navbar-list li:hover {
   z-index: 3;
   opacity: 65%;
   filter: blur(.4px);
