@@ -1,18 +1,22 @@
 #screen {
-  height: 40vw;
+  /* height: 40vw; */
+  height: 30vw;
   display: flex;
   flex-direction: column;
   justify-content: top;
   align-items: center;
   /* border: 1px solid blue; */
   /* animation: glitch 0.15s infinite; */
+  cursor: url("../../img/cursors/CrosshairNormal.cur"), auto;
 }
 
 #screen:hover {
-  cursor: default;
+  /* cursor: default; */
+  cursor: url("../../img/cursors/CrosshairNormal.cur"), auto;
 }
 
 .screen-content {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,17 +29,20 @@
       0 0 6px rgba(255, 255, 255, 0.434),
       0 0 11px rgb(255, 255, 255);
   /* border: 1px solid greenyellow; */
+  margin-bottom: 10px;
 }
 
 #screen-text:hover {
-  cursor: default;
+  /* cursor: default; */
+  cursor: url("../../img/cursors/CrosshairNormal.cur"), auto;
 }
 
 /* flicker */
 #screen::after {
   position: absolute;
   z-index: 2;
-  height: 40vw;
+  /* height: 40vw; */
+  height: 30vw;
   width: 100%;
   /* top: 0;
   right: 0;
@@ -53,7 +60,8 @@
 #screen::before {
   position: absolute;
   z-index: 2;
-  height: 40vw;
+  /* height: 40vw; */
+  height: 30vw;
   width: 100%;
   /* top: 0;
   right: 0;
@@ -292,7 +300,7 @@
 
 /* STATIC CODE */
 .static {
-  height: 40vw;
+  height: 30vw;
   display: flex;
   flex-direction: column;
   justify-content: top;
@@ -306,6 +314,7 @@
       0 0 56px rgba(255, 255, 255, 0.253),
       0 0 56px rgba(255, 255, 255, 0.276),
       0 0 51px rgba(255, 255, 255, 0.311);
+      cursor: url("../../img/cursors/CrosshairNormal.cur"), auto;
 }
 
 @keyframes tv-static {
@@ -337,4 +346,18 @@
 
 #screen-page-title {
   font-size: 14vw;
+}
+
+#channel-text {
+  position: absolute;
+  top: .7vw;
+  right: 2.6vw;
+  font-size: 3vw;
+  color: rgb(109, 255, 47);
+  text-shadow:
+      0 0 5px rgba(95, 253, 81, 0.914),
+      0 0 6px rgba(95, 253, 81, 0.914),
+      0 0 6px rgba(95, 253, 81, 0.773),
+      0 0 6px rgba(95, 253, 81, 0.745),
+      0 0 11px rgb(255, 255, 255);
 }

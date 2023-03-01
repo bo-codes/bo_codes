@@ -207,7 +207,7 @@ form button {
 
 .App-themes label {
   margin: 0 1rem;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .App-themes label input {

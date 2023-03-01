@@ -6,6 +6,7 @@
 .navbar-option {
   text-decoration: none;
   color: white;
+  cursor: url("../../img/cursors/Cross.cur"), auto;
 }
 
 #list-div {
@@ -26,7 +27,7 @@ ul {
 }
 
 li {
-  font-size: 15px;
+  font-size: 1.9vw;
   font-family: "adaptive-mono", monospace;
   letter-spacing: 1.2px;
   list-style-type: none;
@@ -48,5 +49,23 @@ li:hover {
       0 0 28px rgba(255, 255, 255, 0.555),
       0 0 28px rgba(255, 255, 255, 0.434),
       0 0 32px rgb(255, 255, 255);
-  cursor: pointer;
+  /* cursor: pointer; */
+}
+
+@media screen and (min-width: 749px) {
+  li{
+    font-size: 1.4vw;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  li{
+    font-size: 1vw;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  ul{
+    width: 100%;
+  }
 }

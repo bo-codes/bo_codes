@@ -17,7 +17,6 @@ const GithubSection = () => {
       setLoading(false);
     }
     getData();
-    console.log("IN FETCH", data);
   }, []);
 
   useEffect(() => {
@@ -40,11 +39,9 @@ const GithubSection = () => {
 
   const _renderLoading = () => {
     return (
-      <div className="App-centered">
-        <div className="App-loading">
-          <img src={"/loading.gif"} alt="Loading..." width={200} />
-          <p>Activity Loading..</p>
-        </div>
+      <div id="gh-loading">
+        {/* <img src={"/loading.gif"} alt="Loading..." width={200} /> */}
+        <p>Activity Loading..</p>
       </div>
     );
   };
@@ -52,9 +49,7 @@ const GithubSection = () => {
   // ------------ THIS IS THE GRAPH/DATA DISPLAY ------------ //
   const _renderGraphs = () => {
     return (
-      <div style={{ display: data !== null && !loading ? "block" : "none" }}>
-        {data !== null && <canvas id="gh-content" ref={canvasRef} />}
-      </div>
+      <div>{data !== null && <canvas id="gh-content" ref={canvasRef} />}</div>
     );
   };
   // ------------ THIS IS THE GRAPH/DATA DISPLAY ------------ //
