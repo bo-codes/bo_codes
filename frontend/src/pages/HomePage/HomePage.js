@@ -5,9 +5,11 @@ import "./HomePage.css";
 
 function HomePage({data, loading}) {
   return (
-    <div id="github-container">
-      <GithubSection data={data}/>
-      <GithubInfo />
+    <div className="section-wrapper">
+      <div id="github-container" className="section">
+        <GithubSection data={data}/>
+        <GithubInfo />
+      </div>
     </div>
   )
 }

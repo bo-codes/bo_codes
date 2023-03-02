@@ -26,6 +26,27 @@ function App() {
     }
   }, [location]);
 
+  useEffect(() => {
+    const sections = document.querySelectorAll('.section-wrapper');
+
+    const observer = new IntersectionObserver((entries) => {
+
+      entries.forEach((entry) => {
+        const section = entry.target.querySelector('.section')
+        if (entry.isIntersecting) {
+          section.classList.add('section-animation')
+          return;
+        }
+
+        section.classList.remove('section-animation')
+      });
+    });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    })
+  }, [location]);
+
   return (
     <>
       {isLoading ? <div className="static"></div> : <Screen />}

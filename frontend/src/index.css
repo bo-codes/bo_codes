@@ -225,3 +225,25 @@ button {
     transform: scale(1, 1);
   }
 }
+
+.section {
+  visibility: hidden;
+}
+
+.section-animation {
+  visibility: visible;
+  -webkit-animation: slideLeft 2s;
+  animation: slideLeft 2s;
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
