@@ -232,8 +232,8 @@ button {
 
 .section-animation {
   visibility: visible;
-  -webkit-animation: slideLeft 2s;
-  animation: slideLeft 2s;
+  -webkit-animation: slideLeft 1s;
+  animation: slideLeft 1s;
 }
 
 @keyframes slideLeft {

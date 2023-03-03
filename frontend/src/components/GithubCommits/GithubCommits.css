@@ -1,0 +1,36 @@
+#gh-section-container{
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: flex-start;
+
+}
+
+#gh-content{
+  /* border: 1px solid green; */
+  height: 30vw;
+  min-height: 200px;
+}
+
+#gh-loading{
+  border: 1px solid rgba(111, 111, 111, 0.463);
+  background-color: rgba(111, 111, 111, 0.463);
+  height: 30vw;
+  width: 57.5vw;
+  min-height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 620px) {
+  #gh-section-container {
+    justify-content: center;
+    margin-top: 14vw;
+    margin-left: 0;
+  }
+
+  #gh-content {
+    height: auto;
+    width: 100%;
+  }
+}

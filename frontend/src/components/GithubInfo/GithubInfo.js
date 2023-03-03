@@ -1,24 +1,20 @@
-import { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useEffect } from "react";
 import "./GithubInfo.css";
 
 const API_URL = "http://localhost:3001/api/gh-repos/";
 
-const GithubInfo = () => {
-  const [loading, setLoading] = useState(false);
+const GithubInfo = ({loading}) => {
   const [repoData, setRepoData] = useState(null);
 
-  useEffect(() => {
-    setLoading(true);
-    async function getData() {
-      const response = await fetch(API_URL);
-      const fetchedData = await response.json(response);
-      setRepoData(fetchedData.data);
-      setLoading(false);
-      console.log(fetchedData.data);
-    }
-    getData();
-  }, []);
+  async function getRepoData() {
+    const response = await fetch(API_URL);
+    const fetchedData = await response.json(response);
+    setRepoData(fetchedData.data);
+  }
 
+  useEffect(() => {
+    getRepoData();
+  }, []);
 
 
   const convertDateToDays = (dateStr) => {
@@ -38,7 +34,7 @@ const GithubInfo = () => {
     return repoData.slice(0, 6).map((repo, i) => {
       return (
         <li key={i} id="repo-link-container">
-          <a id="repo-link" href={repo.html_url} target="_blank">
+          <a id="repo-link" href={repo.html_url} target="_blank" rel="noreferrer">
             {repo.name}
           </a>
         </li>
