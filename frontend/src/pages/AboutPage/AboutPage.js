@@ -1,14 +1,14 @@
 import aboutPhoto from "../../img/about/about-2.jpg";
 import "./AboutPage.css";
 
-function AboutPage({isLoading}) {
+function AboutPage({isLoading, loading}) {
   return (
     // <div id="aboutpage-text">
     //   <div id="aboutpage-experience">AB0U7</div>
     // </div>
     <div className="section-wrapper">
       <div id="about-container" className="section">
-        {!isLoading && (
+        {!isLoading && !loading && (
           <>
             <div
               id="about-photo"

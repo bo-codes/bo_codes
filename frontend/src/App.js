@@ -12,23 +12,20 @@ import Screen from "./components/Screen/Screen";
 const API_URL = "http://localhost:3001/api/gh/";
 
 function App() {
-  const [isLoading, setIsLoading] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
-  const [loadingStatus, setLoadingStatus] = useState('.')
 
   const location = useLocation();
 
   // -------- INTERSECTION OBSERVER WATCHING FOR WHEN OUR .section ELEMENTS HIT THE VIEWPORT -------- vv
   const startObservation = () => {
-    console.log("starting observation");
     const sections = document.querySelectorAll(".section-wrapper");
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         const section = entry.target.querySelector(".section");
         if (entry.isIntersecting) {
-          console.log("element in viewport");
           section.classList.add("section-animation");
           return;
         }
@@ -43,6 +40,13 @@ function App() {
   };
   // -------- INTERSECTION OBSERVER WATCHING FOR WHEN OUR .section ELEMENTS HIT THE VIEWPORT -------- ^^
 
+  // // SETTIMEOUT FUNCTION //
+  // async function delay(ms) {
+  //   // return await for better async stack trace support in case of errors.
+  //   return await new Promise((resolve) => setTimeout(resolve, ms));
+  // }
+  // // SETTIMEOUT FUNCTION //
+
   // ----------- FUNCTION USED TO PULL COMMIT DATA FROM THE GITHUB API ----------- vv
   async function getData() {
     const response = await fetch(API_URL);
@@ -51,37 +55,13 @@ function App() {
   }
   // ----------- FUNCTION USED TO PULL COMMIT DATA FROM THE GITHUB API ----------- ^^
 
-  let staticSetInterval;
-  const staticInterval = () => {
-    setIsLoading(true);
-    staticSetInterval = setInterval(() => {
-      console.log('going again')
-      setLoadingStatus(ls => ls + '*');
-      setIsLoading(false);
-    }, 800);
-    return () => {
-      clearInterval(staticSetInterval);
-    };
-  }
-
   // ----------- THIS USEEFFECT MAKES SURE WE GET THE HOMEPAGE INFO FROM THE GITHUB API BEFORE WE RENDER ----------- vv
   useEffect(() => {
-
     const homeRender = async () => {
       setLoading(true);
-      if (location.pathname === "/") {
-        await getData();
-        startObservation();
-        setLoading(false);
-      }
-      // WE NEED TO SET ISLOADING TO TRUE WHILE THE loadingInterval RUNS AND THEN SET IT TO FALSE AFTER SO THAT THERE IS THAT DELAY
-      // RIGHT NOW, EVERY OTHER PAGE IS RENDERING IMMEDIATELY BECAUSE START OBSERVATION STARTS RIGHT AWAY
-      else {
-        // staticInterval()
-        console.log("finished with interval, homerender");
-        startObservation();
-        setLoading(false);
-      }
+      await getData();
+      startObservation();
+      setLoading(false);
     };
 
     homeRender();
@@ -89,8 +69,23 @@ function App() {
   // ----------- THIS USEEFFECT MAKES SURE WE GET THE HOMEPAGE INFO FROM THE GITHUB API BEFORE WE RENDER ----------- ^^
 
   useEffect(() => {
-    console.log("finished with interval");
-    // staticInterval()
+    let shouldIgnore;
+    let timeout;
+
+    const runDelay = async () => {
+      if (shouldIgnore) return;
+
+      timeout = setTimeout(() => {
+        setIsLoading(false);
+      }, 800);
+    };
+
+    runDelay();
+
+    return () => {
+      shouldIgnore = true;
+      clearTimeout(timeout);
+    };
   }, [location]);
 
   let currScreen;
@@ -103,7 +98,7 @@ function App() {
       }
       break;
     default:
-      if (isLoading) {
+      if (loading || isLoading) {
         currScreen = <div className="static"></div>;
       } else {
         currScreen = <Screen />;
