@@ -11,8 +11,6 @@ const cors = require("cors");
 const { response } = require("express");
 app.use(cors());
 
-const token = process.env.GH_AUTH;
-
 // ---------- BOILER PLATE TO RUN REACT APP IN PRODUCTION ---------- vv
 if (process.env.NODE_ENV === "production") {
   const path = require("path");
