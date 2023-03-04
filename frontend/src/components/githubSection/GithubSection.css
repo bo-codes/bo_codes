@@ -1,0 +1,9 @@
+#github-section-container {
+  /* border: 1px solid pink; */
+  display: flex;
+  font-family: "adaptive-mono", monospace;
+  letter-spacing: 1.2px;
+  list-style-type: none;
+  text-shadow: 0 0 0.5px rgb(255 255 255 / 57%), 0 0 1px rgb(255 255 255 / 60%), 0 0 1px rgb(255 255 255 / 60%), 0 0 2px rgb(255 255 255 / 53%), 0 0 2px rgb(255 255 255);
+  padding: 2vw;
+}

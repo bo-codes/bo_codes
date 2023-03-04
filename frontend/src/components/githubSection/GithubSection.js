@@ -4,10 +4,10 @@ import './GithubSection.css'
 
 const GithubSection = ({data, loading}) => {
   return (
-    <>
+    <div id="github-section-container">
       <GithubCommits data={data} loading={loading}/>
       <GithubInfo loading={loading}/>
-    </>
+    </div>
   );
 };
 

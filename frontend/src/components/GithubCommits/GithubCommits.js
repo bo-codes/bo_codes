@@ -1,9 +1,8 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import "./GithubCommits.css";
 
-const GithubCommits = ({data, loading}) => {
+const GithubCommits = ({ data, loading }) => {
   const canvasRef = useRef();
-  const contentRef = useRef();
 
   useEffect(() => {
     draw();
@@ -23,27 +22,25 @@ const GithubCommits = ({data, loading}) => {
     });
   };
 
-  const _renderLoading = () => {
-    return (
-      <div id="gh-loading">
-        {/* <img src={"/loading.gif"} alt="Loading..." width={200} /> */}
-        <p>Activity Loading..</p>
-      </div>
-    );
-  };
+  // const _renderLoading = () => {
+  //   return (
+  //     <div id="gh-loading">
+  //       {/* <img src={"/loading.gif"} alt="Loading..." width={200} /> */}
+  //       <p>Activity Loading..</p>
+  //     </div>
+  //   );
+  // };
 
   // ------------ THIS IS THE GRAPH/DATA DISPLAY ------------ //
-  const _renderGraphs = () => {
-    return (
-      <div>{data !== null && <canvas id="gh-content" ref={canvasRef} />}</div>
-    );
-  };
+  const _renderGraphs = (
+    <div>{data !== null && <canvas id="gh-content" ref={canvasRef} />}</div>
+  );
   // ------------ THIS IS THE GRAPH/DATA DISPLAY ------------ //
 
   return (
-    <section ref={contentRef} id="gh-section-container">
-      {loading && _renderLoading()}
-      {!loading && _renderGraphs()}
+    <section id="gh-section-container">
+      {/* {loading && _renderLoading()} */}
+      {!loading && _renderGraphs}
     </section>
   );
 };

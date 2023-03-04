@@ -1,5 +1,42 @@
 import { useState, useEffect } from "react";
 import "./GithubInfo.css";
+import {
+  SiJavascript,
+  SiExpress,
+  SiTypescript,
+  SiCss3,
+  SiHtml5,
+  SiPython,
+  SiFlask,
+  SiRedux,
+  SiPostgresql,
+  SiSequelize,
+  SiFigma,
+  SiSketchup,
+  SiBlender,
+  SiShell,
+  SiRuby,
+  SiSwift,
+} from "react-icons/si";
+import {
+  DiJavascript,
+  DiPython,
+  DiReact,
+  DiHtml5,
+  DiCss3,
+  DiAws,
+  DiDocker,
+  DiBootstrap,
+  DiNodejs,
+  DiNpm,
+  DiGit,
+  DiGithub,
+  DiMarkdown,
+  DiVisualstudio,
+  DiHeroku,
+  DiPhotoshop,
+  DiIllustrator,
+} from "react-icons/di";
 
 const API_URL = "http://localhost:3001/api/gh-repos/";
 const API_URL_2 = "http://localhost:3001/api/gh-repos/languages";
@@ -23,7 +60,7 @@ const GithubInfo = ({ loading }) => {
           name: repo[0],
           url: repo[1],
           pushed_at: repo[2],
-          languages: [Object.keys(repoLanguages)],
+          languages: [...Object.keys(repoLanguages)],
         };
       })
     );
@@ -60,9 +97,45 @@ const GithubInfo = ({ loading }) => {
           >
             <div id="repo-link-and-languages-container">
               <div>{repo.name}</div>
-              {repo.languages.slice(0, 4).map((language, i) => {
-                return <div key={i}>{language}</div>;
-              })}
+              <div id="languages-container">
+                {repo.languages.slice(0, 4).map((language, i) => {
+                  console.log(language);
+                  let languageImg;
+                  // console.log(language)
+                  switch (language) {
+                    case "JavaScript":
+                      languageImg = <SiJavascript />;
+                      break;
+                    case "Python":
+                      languageImg = <SiPython />;
+                      break;
+                    case "CSS" || "SCSS":
+                      languageImg = <SiCss3 />;
+                      break;
+                    case "HTML":
+                      languageImg = <SiHtml5 />;
+                      break;
+                    case "TypeScript":
+                      languageImg = <SiTypescript />;
+                      break;
+                    case "Ruby":
+                      languageImg = <SiRuby />;
+                      break;
+                    default:
+                      languageImg = null;
+                  }
+                  // console.log(languageImg);
+                  let ele;
+                  if (languageImg) {
+                    ele = (
+                      <div key={i} id="individual-language">
+                        {languageImg}
+                      </div>
+                    );
+                  } else ele = <></>
+                  return ele;
+                })}
+              </div>
             </div>
           </a>
         </li>

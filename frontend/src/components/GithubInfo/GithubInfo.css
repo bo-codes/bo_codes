@@ -1,5 +1,6 @@
 #repos-section {
   /* border: 1px solid purple; */
+  width: 30vw;
   margin-left: 2vw;
 }
 
@@ -19,7 +20,7 @@
 
 #repo-link-container {
   padding-bottom: .9vw;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 
 }
 
@@ -27,7 +28,7 @@
   color: white;
   text-decoration: none;
   font-size: 1vw;
-  width: fit-content;
+  width: 100%;
   /* border: 1px solid skyblue; */
 }
 
@@ -35,10 +36,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid green;
+  /* border: 1px solid green; */
   width: 100%;
 }
 
 #repo-link-and-languages-container:hover {
   cursor: pointer;
+}
+
+#languages-container {
+  display: flex;
 }
