@@ -19,11 +19,26 @@
 
 #repo-link-container {
   padding-bottom: .9vw;
+  border: 1px solid blue;
+
 }
 
 #repo-link {
   color: white;
   text-decoration: none;
   font-size: 1vw;
+  width: fit-content;
   /* border: 1px solid skyblue; */
+}
+
+#repo-link-and-languages-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid green;
+  width: 100%;
+}
+
+#repo-link-and-languages-container:hover {
+  cursor: pointer;
 }

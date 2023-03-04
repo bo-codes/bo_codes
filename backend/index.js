@@ -3,12 +3,15 @@ const asyncHandler = require("express-async-handler");
 const app = express();
 const { fetchDataForAllYears } = require("./fetch.js");
 const request = require("request");
+const axios = require("axios");
 const { Octokit } = require("@octokit/core");
 
 
 
 const cors = require("cors");
+const { response } = require("express");
 app.use(cors());
+
 
 // // ---------- NOT OUR STUFF ---------- vv
 // // serve up production assets
@@ -64,21 +67,54 @@ app.get(
 );
 
 app.get(
-  "/api/gh-repos",
+  "/api/gh-repos/",
   asyncHandler(async (req, res) => {
+    // axios
+    //   .get("https://api.github.com/user/repos", {
+    //     headers: {
+    //       Authorization: `Bearer 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`,
+    //     },
+    //   })
+    //   .then((response) => (response));
+    // return res
     const octokit = new Octokit({
       auth: process.env.GH_AUTH,
     });
 
-    const data1 = await octokit.request("GET /users/bo-codes/repos", {
+    const repoData = await octokit.request(
+      "GET https://api.github.com/user/repos",
+      {
+        username: "bo-codes",
+        headers: {
+          authorization: `Bearer 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`,
+          "X-GitHub-Api-Version": "2022-11-28",
+        },
+      }
+    );
+
+    // console.log(repoData, "HIT REPOS");
+    return res.json(repoData);
+  })
+);
+
+app.get(
+  "/api/gh-repos/languages",
+  asyncHandler(async (req, res) => {
+    const language_url = req.query.url;
+    const octokit = new Octokit({
+      auth: process.env.GH_AUTH,
+    });
+
+    const repoData = await octokit.request(`GET ${language_url}`, {
       username: "bo-codes",
       headers: {
+        authorization: `Bearer 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`,
         "X-GitHub-Api-Version": "2022-11-28",
       },
     });
 
-    // console.log(data1, "HIT REPOS");
-    return res.json(data1);
+    // console.log(repoData.data, "HIT LANGUAGE");
+    return res.json(repoData.data);
   })
 );
 
