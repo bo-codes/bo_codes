@@ -4,15 +4,15 @@ const app = express();
 const { fetchDataForAllYears } = require("./fetch.js");
 const request = require("request");
 const axios = require("axios");
+require("dotenv").config();
 const { Octokit } = require("@octokit/core");
-
 
 
 const cors = require("cors");
 const { response } = require("express");
 app.use(cors());
 
-
+const token = process.env.GH_AUTH;
 // // ---------- NOT OUR STUFF ---------- vv
 // // serve up production assets
 // app.use(express.static("../frontend/build/"));
@@ -86,7 +86,7 @@ app.get(
       {
         username: "bo-codes",
         headers: {
-          authorization: `Bearer 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`,
+          authorization: `Bearer ${token}`,
           "X-GitHub-Api-Version": "2022-11-28",
         },
       }
@@ -108,7 +108,7 @@ app.get(
     const repoData = await octokit.request(`GET ${language_url}`, {
       username: "bo-codes",
       headers: {
-        authorization: `Bearer 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`,
+        authorization: `Bearer ${token}`,
         "X-GitHub-Api-Version": "2022-11-28",
       },
     });
