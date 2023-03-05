@@ -1,5 +1,4 @@
 import NavBar from "../NavBar/NavBar";
-import HomePage from "../../pages/HomePage/HomePage";
 import "./Screen.css";
 import { useLocation } from "react-router-dom";
 // import Route from "../Route/Route";
@@ -52,6 +51,8 @@ function Screen() {
       screenText = <div id="screen-page-title">C0NTACT</div>;
       chNum = "05";
       chAbrev = "CNC";
+      break;
+    default:
       break;
   }
 

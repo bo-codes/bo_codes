@@ -1,5 +1,3 @@
-import GithubInfo from "../../components/GithubInfo/GithubInfo";
-import GithubCommits from "../../components/GithubCommits/GithubCommits";
 import "./HomePage.css";
 import GithubSection from "../../components/GithubSection/GithubSection";
 

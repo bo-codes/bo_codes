@@ -51,6 +51,7 @@ app.get(
 app.get(
   "/api/gh-repos/",
   asyncHandler(async (req, res) => {
+    console.log("HIT REPOS")
     const octokit = new Octokit({
       auth: process.env.GH_AUTH,
     });
@@ -72,6 +73,7 @@ app.get(
 app.get(
   "/api/gh-repos/languages",
   asyncHandler(async (req, res) => {
+    console.log("HIT LANGUAGES")
     const language_url = req.query.url;
     const octokit = new Octokit({
       auth: process.env.GH_AUTH,

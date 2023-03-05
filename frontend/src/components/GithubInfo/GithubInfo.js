@@ -8,6 +8,7 @@ import {
   SiHtml5,
   SiPython,
   SiFlask,
+  SiReact,
   SiRedux,
   SiPostgresql,
   SiSequelize,
@@ -17,26 +18,21 @@ import {
   SiShell,
   SiRuby,
   SiSwift,
+  SiAmazonaws,
+  SiDocker,
+  SiBootstrap,
+  SiNodemon,
+  SiNodedotjs,
+  SiNpm,
+  SiGit,
+  SiGithub,
+  SiMarkdown,
+  SiVisualstudiocode,
+  SiHeroku,
+  SiAdobephotoshop,
+  SiAdobeillustrator,
+  SiAdobelightroom,
 } from "react-icons/si";
-import {
-  DiJavascript,
-  DiPython,
-  DiReact,
-  DiHtml5,
-  DiCss3,
-  DiAws,
-  DiDocker,
-  DiBootstrap,
-  DiNodejs,
-  DiNpm,
-  DiGit,
-  DiGithub,
-  DiMarkdown,
-  DiVisualstudio,
-  DiHeroku,
-  DiPhotoshop,
-  DiIllustrator,
-} from "react-icons/di";
 
 const API_URL = "http://localhost:3001/api/gh-repos/";
 const API_URL_2 = "http://localhost:3001/api/gh-repos/languages";
@@ -64,7 +60,7 @@ const GithubInfo = ({ loading }) => {
         };
       })
     );
-    console.log(finalData);
+    // console.log(finalData);
     setRepoData(finalData);
   }
 
@@ -91,7 +87,7 @@ const GithubInfo = ({ loading }) => {
         <li key={i} id="repo-link-container">
           <a
             id="repo-link"
-            href={repo.html_url}
+            href={repo.url}
             target="_blank"
             rel="noreferrer"
           >
@@ -99,9 +95,7 @@ const GithubInfo = ({ loading }) => {
               <div>{repo.name}</div>
               <div id="languages-container">
                 {repo.languages.slice(0, 4).map((language, i) => {
-                  console.log(language);
                   let languageImg;
-                  // console.log(language)
                   switch (language) {
                     case "JavaScript":
                       languageImg = <SiJavascript />;
@@ -124,7 +118,6 @@ const GithubInfo = ({ loading }) => {
                     default:
                       languageImg = null;
                   }
-                  // console.log(languageImg);
                   let ele;
                   if (languageImg) {
                     ele = (
@@ -132,7 +125,7 @@ const GithubInfo = ({ loading }) => {
                         {languageImg}
                       </div>
                     );
-                  } else ele = <></>
+                  } else ele = <div key={i}></div>;
                   return ele;
                 })}
               </div>

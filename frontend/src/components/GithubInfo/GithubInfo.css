@@ -8,18 +8,18 @@
   /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
-  margin-top: 2vw;
+  margin-top: 2.4vw;
   /* height: auto; */
   padding: 0;
 }
 
 #currently-working-on {
   /* border: 1px solid seagreen; */
-  font-size: 1.1vw;
+  font-size: 1.5vw;
 }
 
 #repo-link-container {
-  padding-bottom: .9vw;
+  padding-bottom: 1.1vw;
   /* border: 1px solid blue; */
 
 }
@@ -27,7 +27,7 @@
 #repo-link {
   color: white;
   text-decoration: none;
-  font-size: 1vw;
+  font-size: 1.3vw;
   width: 100%;
   /* border: 1px solid skyblue; */
 }
@@ -46,4 +46,8 @@
 
 #languages-container {
   display: flex;
+}
+
+#individual-language {
+  margin-left: .16vw;
 }

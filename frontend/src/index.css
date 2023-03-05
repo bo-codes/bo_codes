@@ -232,14 +232,26 @@ button {
 
 .section-animation {
   visibility: visible;
-  -webkit-animation: slideLeft 1s;
-  animation: slideLeft 1s;
+  -webkit-animation: slideUp 1s;
+  animation: slideUp 1s;
 }
 
 @keyframes slideLeft {
   from {
     opacity: 0;
     transform: translateX(-25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
   }
 
   to {
