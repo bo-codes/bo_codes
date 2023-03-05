@@ -3,7 +3,7 @@ import "./ProjectsPage.css"
 
 function ProjectsPage() {
   return (
-    <div>
+    <div id="projects-page-container">
       <LanguagesGraph />
     </div>
   );

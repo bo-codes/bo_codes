@@ -1,28 +1,29 @@
 import { useEffect, useState } from "react";
-// import {
-//   Chart as ChartJS,
-//   RadialLinearScale,
-//   PointElement,
-//   LineElement,
-//   Filler,
-//   Tooltip,
-//   Legend,
-// } from "chart.js";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Doughnut } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  RadialLinearScale,
+  PointElement,
+  LineElement,
+  Filler,
+  Tooltip,
+  Legend,
+} from "chart.js";
+
+// import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+// import { Doughnut } from "react-chartjs-2";
 
 import { Radar } from "react-chartjs-2";
 import "./LanguagesGraph.css";
 
-ChartJS.register(ArcElement, Tooltip, Legend);
-// ChartJS.register(
-//   RadialLinearScale,
-//   PointElement,
-//   LineElement,
-//   Filler,
-//   Tooltip,
-//   Legend
-// );
+// ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(
+  RadialLinearScale,
+  PointElement,
+  LineElement,
+  Filler,
+  Tooltip,
+  Legend
+);
 
 const API_URL = "http://localhost:3001/api/gh-repos/";
 const API_URL_2 = "http://localhost:3001/api/gh-repos/languages";
@@ -92,62 +93,93 @@ const LanguagesGraph = () => {
             }
           }
         }
-        languageSums = {
-          JavaScript: Math.round(languageSums.JavaScript / 10000 * 10) / 10,
-          Python: Math.round(languageSums.Python / 1000 * 10) / 10,
-          TypeScript: Math.round(languageSums.TypeScript / 1000 * 10) / 10,
-          HTML: Math.round(languageSums.HTML / 1000 * 10) / 10,
-          CSS: Math.round(languageSums.CSS / 1000 * 10) / 10,
-          Ruby: Math.round(languageSums.Ruby / 1000 * 10) / 10,
-          Docker: Math.round(languageSums.Docker / 1000 * 10) / 10,
-          Shell: Math.round(languageSums.Shell / 1000 * 10) / 10,
-        }
+        const logLanguageSums = {
+          JavaScript: Math.log(languageSums.JavaScript),
+          Python: Math.log(languageSums.Python),
+          TypeScript: Math.log(languageSums.TypeScript),
+          HTML: Math.log(languageSums.HTML),
+          CSS: Math.log(languageSums.CSS),
+          Ruby: Math.log(languageSums.Ruby),
+          Docker: Math.log(languageSums.Docker),
+          Shell: Math.log(languageSums.Shell),
+        };
+
+        // const chartData = {
+        //   labels: [...Object.keys(languageSums)],
+        //   datasets: [
+        //     {
+        //       label: "# of lines written / 1000",
+        //       data: [...Object.values(languageSums)],
+        //       backgroundColor: [
+        //         "rgba(255, 135, 99, 0.2)",
+        //         "rgba(54, 162, 235, 0.2)",
+        //         "rgba(255, 206, 86, 0.2)",
+        //         "rgba(75, 192, 192, 0.2)",
+        //         "rgba(153, 102, 255, 0.2)",
+        //         "rgba(255, 159, 64, 0.2)",
+        //         "rgba(240, 102, 255, 0.2)",
+        //         "rgba(73, 196, 33, 0.2)",
+        //       ],
+        //       borderColor: [
+        //         "rgba(255, 146, 99, 1)",
+        //         "rgba(54, 162, 235, 1)",
+        //         "rgba(255, 206, 86, 1)",
+        //         "rgba(75, 192, 192, 1)",
+        //         "rgba(153, 102, 255, 1)",
+        //         "rgba(255, 159, 64, 1)",
+        //         "rgba(242, 102, 255, 1)",
+        //         "rgba(40, 176, 70, 0.674)",
+        //       ],
+        //       borderWidth: 1,
+        //     },
+        //   ],
+        // };
 
         const chartData = {
-          labels: [...Object.keys(languageSums)],
+          labels: [...Object.keys(logLanguageSums)],
           datasets: [
             {
-              label: "# of lines written / 1000",
-              data: [...Object.values(languageSums)],
-              backgroundColor: [
-                "rgba(255, 135, 99, 0.2)",
-                "rgba(54, 162, 235, 0.2)",
-                "rgba(255, 206, 86, 0.2)",
-                "rgba(75, 192, 192, 0.2)",
-                "rgba(153, 102, 255, 0.2)",
-                "rgba(255, 159, 64, 0.2)",
-                "rgba(240, 102, 255, 0.2)",
-                "rgba(73, 196, 33, 0.2)",
-              ],
-              borderColor: [
-                "rgba(255, 146, 99, 1)",
-                "rgba(54, 162, 235, 1)",
-                "rgba(255, 206, 86, 1)",
-                "rgba(75, 192, 192, 1)",
-                "rgba(153, 102, 255, 1)",
-                "rgba(255, 159, 64, 1)",
-                "rgba(242, 102, 255, 1)",
-                "rgba(40, 176, 70, 0.674)",
-              ],
+              label: "# of lines written",
+              data: [...Object.values(logLanguageSums)],
+              backgroundColor: "rgba(255, 99, 132, 0.2)",
+              borderColor: "rgba(255, 99, 132, 1)",
               borderWidth: 1,
             },
           ],
         };
-        return chartData;
+        return { chartData, languageSums };
       };
 
-      setLanguageData(calculateLangSums(finalData));
+      const { chartData, languageSums } = calculateLangSums(finalData);
+
+      setLanguageData({ logged: chartData, raw: languageSums });
     }
 
     getRepoData();
   }, []);
 
-
   return (
-    <div>
-      <div id="donut-chart">
-        {languageData && <Doughnut data={languageData} />}
-      </div>
+    <div id="radar-chart-container">
+      {/* {languageData && <Doughnut data={languageData} />} */}
+      {languageData && (
+        <>
+          <div id="radar-chart">
+            <Radar data={languageData.logged} />
+          </div>
+          <div id="chart-raw-metrics-container">
+            <div id="chart-raw-metrics">
+              {Object.keys(languageData.raw).map((lang) => {
+                return (
+                  <>
+                    <div>{lang}:</div>
+                    <div id="metric-number">{languageData.raw[lang]}</div>
+                  </>
+                );
+              })}
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };
