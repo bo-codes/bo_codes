@@ -2,8 +2,6 @@ const express = require("express");
 const asyncHandler = require("express-async-handler");
 const app = express();
 const { fetchDataForAllYears } = require("./fetch.js");
-const request = require("request");
-const axios = require("axios");
 require("dotenv").config();
 const { Octokit } = require("@octokit/core");
 
