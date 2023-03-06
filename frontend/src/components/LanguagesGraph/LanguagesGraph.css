@@ -1,14 +1,15 @@
 #radar-chart-container {
   display: flex;
   margin-top: 2vw;
-  /* border: 1px solid orange; */
+  /* border: 1px solid purple; */
 }
 
 #radar-chart {
   width: 36vw;
   margin-right: 1.9vw;
+  margin-left: 1.9vw;
   /* background-color: rgba(74, 112, 57, 0.668); */
-  /* border: 1px solid orange; */
+  /* border: 1px solid salmon; */
 }
 
 #chart-raw-metrics {

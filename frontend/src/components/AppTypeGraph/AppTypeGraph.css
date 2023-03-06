@@ -1,0 +1,22 @@
+#bar-chart-container {
+  /* border: 1px solid blue; */
+  border-left: 1.4px solid rgba(128, 128, 128, 0.497);
+  /* position: relative; */
+  padding-left: 1.4vw;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#bar-chart {
+  /* margin: 0 4vw auto; */
+  height: 100%;
+  width: 100%;
+}
+
+.chart {
+  width: 100%;
+  overflow:hidden
+}

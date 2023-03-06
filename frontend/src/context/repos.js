@@ -29,9 +29,9 @@ const Provider = ({children}) => {
         const languageList = await fetch(`${API_URL_2}?url=${repo[3]}`);
         const repoLanguages = await languageList.json();
         return {
-          rawRepoData: {
-            repoData: allRepoData
-          },
+          rawRepoData: [
+            ...allRepoData
+          ],
           graphData: {
             languages: repoLanguages,
           },

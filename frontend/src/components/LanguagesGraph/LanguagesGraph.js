@@ -9,14 +9,10 @@ import {
   Legend,
 } from "chart.js";
 
-// import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-// import { Doughnut } from "react-chartjs-2";
-
 import { Radar } from "react-chartjs-2";
 import "./LanguagesGraph.css";
 import ReposContext from "../../context/repos";
 
-// ChartJS.register(ArcElement, Tooltip, Legend);
 ChartJS.register(
   RadialLinearScale,
   PointElement,
@@ -26,33 +22,12 @@ ChartJS.register(
   Legend
 );
 
-// const API_URL = "http://localhost:3001/api/gh-repos/";
-// const API_URL_2 = "http://localhost:3001/api/gh-repos/languages";
-
 const LanguagesGraph = () => {
   const [languageData, setLanguageData] = useState(null);
-  const [appType, setAppType] = useState(null);
 
   const { repoData } = useContext(ReposContext);
   useEffect(() => {
     async function getRepoData() {
-      // const response = await fetch(API_URL);
-      // const fetchedData = await response.json(response);
-      // // console.log(fetchedData.data);
-      // const formattedData = fetchedData.data.map((repo) => {
-      //   return [repo.name, repo.html_url, repo.pushed_at, repo.languages_url];
-      // });
-      // console.log(formattedData);
-      // const finalData = await Promise.all(
-      //   formattedData.map(async (repo) => {
-      //     const languageList = await fetch(`${API_URL_2}?url=${repo[3]}`);
-      //     const repoLanguages = await languageList.json();
-      //     return {
-      //       languages: repoLanguages,
-      //     };
-      //   })
-      // );
-
       // ---------------------------- FUNCTION TO CALCULATE TOTAL SUMS FOR ALL LANGUAGES AND FORMAT DATA FOR GRAPH ---------------------------- vv
       const calculateLangSums = (data) => {
         let languageSums = {
@@ -103,7 +78,6 @@ const LanguagesGraph = () => {
         // ----------- ITERATING THROUGH ALL OF OUR REPOS WE GOT BACK FROM THE FETCHES AND ADDING UP THE CHARS WRITTEN FOR EACH LANGUAGE ----------- ^^
         //
         //
-        //
         // ----------- CALCULATING LOGS OF OR languageSums SO DATA LOOKS CLOSER ----------- vv
         const logLanguageSums = {
           JavaScript: Math.log(languageSums.JavaScript),
@@ -116,8 +90,6 @@ const LanguagesGraph = () => {
           Shell: Math.log(languageSums.Shell),
         };
         // ----------- CALCULATING LOGS OF OR languageSums SO DATA LOOKS CLOSER ----------- ^^
-        //
-        //
         //
         //
         // ----------- FORMATTING DATA FOR THE RADAR CHART ----------- vv
@@ -140,68 +112,14 @@ const LanguagesGraph = () => {
           ],
         };
         // ----------- FORMATTING DATA FOR THE RADAR CHART ----------- ^^
-        //
-        //
         return { chartData, languageSums };
       };
       // ---------------------------- FUNCTION TO CALCULATE TOTAL SUMS FOR ALL LANGUAGES AND FORMAT DATA FOR GRAPH ---------------------------- ^^
       //
       //
-      //
-      //
-      //
-      //
-      //
-      //
-      //
-      // -------- HELPER FUNCTION TO PULL JUST THE TOPICS FROM EACH REPO AND STORE IT AS AN ARR -------- vv
-      const extractTopics = (repos) => {
-        repos.map((repo) => {
-          return repo.topics[0];
-        });
-      };
-      // -------- HELPER FUNCTION TO PULL JUST THE TOPICS FROM EACH REPO AND STORE IT AS AN ARR -------- ^^
-      //
-      //
-      // ---------------------------- FUNCTION TO CALCULATE FRONTEND, FULLSTACK, ETC. ----------------------------vv
-      const calculateAppTypes = (fetchedRepos) => {
-        const topics = {
-          fullstack: 0,
-          frontend: 0,
-          backend: 0,
-        };
-
-        extractTopics(fetchedRepos).forEach((topic) => {
-          switch (topic) {
-            case "fullstack":
-              topics.fullstack += 1;
-              break;
-            case "frontend":
-              topics.frontend += 1;
-              break;
-            case "backend":
-              topics.frontend += 1;
-              break;
-            default:
-              break;
-          }
-        });
-
-        return topics;
-      };
-      // ---------------------------- FUNCTION TO CALCULATE FRONTEND, FULLSTACK, ETC. ----------------------------^^
-      //
-      //
-      //
-      //
-      //
-      //
-      // DESTRUCTURING THE DATA RETURNED FROM OUR calculateLangSums FUNCTION
       const { chartData, languageSums } = calculateLangSums(repoData);
       setLanguageData({ logged: chartData, raw: languageSums });
     }
-    // console.log(calculateAppTypes(fetchedData.data))
-
     getRepoData();
   }, []);
 
