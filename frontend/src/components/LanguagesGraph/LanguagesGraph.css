@@ -5,8 +5,9 @@
 }
 
 #radar-chart {
-  width: 40vw;
+  width: 36vw;
   margin-right: 1.9vw;
+  /* background-color: rgba(74, 112, 57, 0.668); */
   /* border: 1px solid orange; */
 }
 
@@ -17,9 +18,9 @@
   display: flex;
   height: 100%;
   justify-content: space-between;
-    font-family: "adaptive-mono", monospace;
-      letter-spacing: 1.2px;
-      text-shadow: 0 0 0.5px rgb(255 255 255 / 57%), 0 0 1px rgb(255 255 255 / 60%), 0 0 1px rgb(255 255 255 / 60%), 0 0 2px rgb(255 255 255 / 53%), 0 0 2px rgb(255 255 255);
+  font-family: "adaptive-mono", monospace;
+  letter-spacing: 1.2px;
+  text-shadow: 0 0 0.5px rgb(255 255 255 / 57%), 0 0 1px rgb(255 255 255 / 60%), 0 0 1px rgb(255 255 255 / 60%), 0 0 2px rgb(255 255 255 / 53%), 0 0 2px rgb(255 255 255);
 }
 
 #chart-raw-metrics {

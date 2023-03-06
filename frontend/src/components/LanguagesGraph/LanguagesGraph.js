@@ -30,12 +30,13 @@ const API_URL_2 = "http://localhost:3001/api/gh-repos/languages";
 
 const LanguagesGraph = () => {
   const [languageData, setLanguageData] = useState(null);
+  const [appType, setAppType] = useState(null);
 
   useEffect(() => {
     async function getRepoData() {
       const response = await fetch(API_URL);
       const fetchedData = await response.json(response);
-      // console.log(fetchedData.data)
+      // console.log(fetchedData.data);
       const formattedData = fetchedData.data.map((repo) => {
         return [repo.name, repo.html_url, repo.pushed_at, repo.languages_url];
       });
@@ -50,6 +51,7 @@ const LanguagesGraph = () => {
         })
       );
 
+      // ---------------------------- FUNCTION TO CALCULATE TOTAL SUMS FOR ALL LANGUAGES AND FORMAT DATA FOR GRAPH ---------------------------- vv
       const calculateLangSums = (data) => {
         let languageSums = {
           JavaScript: 0,
@@ -62,6 +64,7 @@ const LanguagesGraph = () => {
           Shell: 0,
         };
 
+        // ----------- ITERATING THROUGH ALL OF OUR REPOS WE GOT BACK FROM THE FETCHES AND ADDING UP THE CHARS WRITTEN FOR EACH LANGUAGE ----------- vv
         for (let i = 0; i < data.length; i++) {
           let currRepo = data[i];
           for (let language in currRepo.languages) {
@@ -93,6 +96,11 @@ const LanguagesGraph = () => {
             }
           }
         }
+        // ----------- ITERATING THROUGH ALL OF OUR REPOS WE GOT BACK FROM THE FETCHES AND ADDING UP THE CHARS WRITTEN FOR EACH LANGUAGE ----------- ^^
+        //
+        //
+        //
+        // ----------- CALCULATING LOGS OF OR languageSums SO DATA LOOKS CLOSER ----------- vv
         const logLanguageSums = {
           JavaScript: Math.log(languageSums.JavaScript),
           Python: Math.log(languageSums.Python),
@@ -103,77 +111,127 @@ const LanguagesGraph = () => {
           Docker: Math.log(languageSums.Docker),
           Shell: Math.log(languageSums.Shell),
         };
-
-        // const chartData = {
-        //   labels: [...Object.keys(languageSums)],
-        //   datasets: [
-        //     {
-        //       label: "# of lines written / 1000",
-        //       data: [...Object.values(languageSums)],
-        //       backgroundColor: [
-        //         "rgba(255, 135, 99, 0.2)",
-        //         "rgba(54, 162, 235, 0.2)",
-        //         "rgba(255, 206, 86, 0.2)",
-        //         "rgba(75, 192, 192, 0.2)",
-        //         "rgba(153, 102, 255, 0.2)",
-        //         "rgba(255, 159, 64, 0.2)",
-        //         "rgba(240, 102, 255, 0.2)",
-        //         "rgba(73, 196, 33, 0.2)",
-        //       ],
-        //       borderColor: [
-        //         "rgba(255, 146, 99, 1)",
-        //         "rgba(54, 162, 235, 1)",
-        //         "rgba(255, 206, 86, 1)",
-        //         "rgba(75, 192, 192, 1)",
-        //         "rgba(153, 102, 255, 1)",
-        //         "rgba(255, 159, 64, 1)",
-        //         "rgba(242, 102, 255, 1)",
-        //         "rgba(40, 176, 70, 0.674)",
-        //       ],
-        //       borderWidth: 1,
-        //     },
-        //   ],
-        // };
-
+        // ----------- CALCULATING LOGS OF OR languageSums SO DATA LOOKS CLOSER ----------- ^^
+        //
+        //
+        //
+        //
+        // ----------- FORMATTING DATA FOR THE RADAR CHART ----------- vv
         const chartData = {
           labels: [...Object.keys(logLanguageSums)],
           datasets: [
             {
-              label: "# of lines written",
+              label: "",
+              // label: "# of chars written",
               data: [...Object.values(logLanguageSums)],
-              backgroundColor: "rgba(255, 99, 132, 0.2)",
-              borderColor: "rgba(255, 99, 132, 1)",
+              // backgroundColor: "rgba(160, 242, 146, 0.2)",
+              // borderColor: "rgba(119, 248, 124, 1)",
+              backgroundColor: "rgba(115, 99, 255, 0.308)",
+              borderColor: "rgba(107, 99, 255, 1)",
+              // backgroundColor: "rgba(255, 99, 132, 0.2)",
+              // borderColor: "rgba(255, 99, 132, 1)",
+              color: "white",
               borderWidth: 1,
             },
           ],
         };
+        // ----------- FORMATTING DATA FOR THE RADAR CHART ----------- ^^
+        //
+        //
         return { chartData, languageSums };
       };
+      // ---------------------------- FUNCTION TO CALCULATE TOTAL SUMS FOR ALL LANGUAGES AND FORMAT DATA FOR GRAPH ---------------------------- ^^
+      //
+      //
+      //
+      //
+      //
+      //
+      //
+      //
+      //
+      // -------- HELPER FUNCTION TO PULL JUST THE TOPICS FROM EACH REPO AND STORE IT AS AN ARR -------- vv
+      const extractTopics = (repos) => {
+        repos.map((repo) => {
+          return repo.topics[0];
+        });
+      };
+      // -------- HELPER FUNCTION TO PULL JUST THE TOPICS FROM EACH REPO AND STORE IT AS AN ARR -------- ^^
+      //
+      //
+      // ---------------------------- FUNCTION TO CALCULATE FRONTEND, FULLSTACK, ETC. ----------------------------vv
+      const calculateAppTypes = (fetchedRepos) => {
+        const topics = {
+          fullstack: 0,
+          frontend: 0,
+          backend: 0,
+        };
 
+        extractTopics(fetchedRepos).forEach((topic) => {
+          switch (topic) {
+            case "fullstack":
+              topics.fullstack += 1;
+              break;
+            case "frontend":
+              topics.frontend += 1;
+              break;
+            case "backend":
+              topics.frontend += 1;
+              break;
+            default:
+              break;
+          }
+        });
+
+        return topics;
+      };
+      // ---------------------------- FUNCTION TO CALCULATE FRONTEND, FULLSTACK, ETC. ----------------------------^^
+      //
+      //
+      //
+      //
+      //
+      //
+      // DESTRUCTURING THE DATA RETURNED FROM OUR calculateLangSums FUNCTION
       const { chartData, languageSums } = calculateLangSums(finalData);
-
       setLanguageData({ logged: chartData, raw: languageSums });
     }
+    console.log(calculateAppTypes(fetchedData.data))
 
     getRepoData();
   }, []);
 
+  // ----------- SETTING THE LINES ON THE GRAPH TO BE THE COLOR BELOW ----------- vv
+  const chartOptions = {
+    scales: {
+      r: {
+        grid: {
+          color: "rgba(195, 195, 195, 0.183)",
+        },
+        ticks: {
+          display: false,
+        },
+      },
+    },
+  };
+  // ----------- SETTING THE LINES ON THE GRAPH TO BE THE COLOR BELOW ----------- ^^
+
   return (
     <div id="radar-chart-container">
-      {/* {languageData && <Doughnut data={languageData} />} */}
+      {/* {console.log(chartOptions)} */}
       {languageData && (
         <>
           <div id="radar-chart">
-            <Radar data={languageData.logged} />
+            <Radar data={languageData.logged} options={chartOptions} />
           </div>
           <div id="chart-raw-metrics-container">
             <div id="chart-raw-metrics">
-              {Object.keys(languageData.raw).map((lang) => {
+              {Object.keys(languageData.raw).map((lang, i) => {
                 return (
-                  <>
+                  <div key={i}>
                     <div>{lang}:</div>
                     <div id="metric-number">{languageData.raw[lang]}</div>
-                  </>
+                  </div>
                 );
               })}
             </div>

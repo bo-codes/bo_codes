@@ -40,13 +40,6 @@ function App() {
   };
   // -------- INTERSECTION OBSERVER WATCHING FOR WHEN OUR .section ELEMENTS HIT THE VIEWPORT -------- ^^
 
-  // // SETTIMEOUT FUNCTION //
-  // async function delay(ms) {
-  //   // return await for better async stack trace support in case of errors.
-  //   return await new Promise((resolve) => setTimeout(resolve, ms));
-  // }
-  // // SETTIMEOUT FUNCTION //
-
   // ----------- FUNCTION USED TO PULL COMMIT DATA FROM THE GITHUB API ----------- vv
   async function getData() {
     const response = await fetch(API_URL);
