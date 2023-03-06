@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
   Chart as ChartJS,
   RadialLinearScale,
@@ -14,6 +14,7 @@ import {
 
 import { Radar } from "react-chartjs-2";
 import "./LanguagesGraph.css";
+import ReposContext from "../../context/repos";
 
 // ChartJS.register(ArcElement, Tooltip, Legend);
 ChartJS.register(
@@ -25,31 +26,32 @@ ChartJS.register(
   Legend
 );
 
-const API_URL = "http://localhost:3001/api/gh-repos/";
-const API_URL_2 = "http://localhost:3001/api/gh-repos/languages";
+// const API_URL = "http://localhost:3001/api/gh-repos/";
+// const API_URL_2 = "http://localhost:3001/api/gh-repos/languages";
 
 const LanguagesGraph = () => {
   const [languageData, setLanguageData] = useState(null);
   const [appType, setAppType] = useState(null);
 
+  const { repoData } = useContext(ReposContext);
   useEffect(() => {
     async function getRepoData() {
-      const response = await fetch(API_URL);
-      const fetchedData = await response.json(response);
-      // console.log(fetchedData.data);
-      const formattedData = fetchedData.data.map((repo) => {
-        return [repo.name, repo.html_url, repo.pushed_at, repo.languages_url];
-      });
+      // const response = await fetch(API_URL);
+      // const fetchedData = await response.json(response);
+      // // console.log(fetchedData.data);
+      // const formattedData = fetchedData.data.map((repo) => {
+      //   return [repo.name, repo.html_url, repo.pushed_at, repo.languages_url];
+      // });
       // console.log(formattedData);
-      const finalData = await Promise.all(
-        formattedData.map(async (repo) => {
-          const languageList = await fetch(`${API_URL_2}?url=${repo[3]}`);
-          const repoLanguages = await languageList.json();
-          return {
-            languages: repoLanguages,
-          };
-        })
-      );
+      // const finalData = await Promise.all(
+      //   formattedData.map(async (repo) => {
+      //     const languageList = await fetch(`${API_URL_2}?url=${repo[3]}`);
+      //     const repoLanguages = await languageList.json();
+      //     return {
+      //       languages: repoLanguages,
+      //     };
+      //   })
+      // );
 
       // ---------------------------- FUNCTION TO CALCULATE TOTAL SUMS FOR ALL LANGUAGES AND FORMAT DATA FOR GRAPH ---------------------------- vv
       const calculateLangSums = (data) => {
@@ -67,31 +69,33 @@ const LanguagesGraph = () => {
         // ----------- ITERATING THROUGH ALL OF OUR REPOS WE GOT BACK FROM THE FETCHES AND ADDING UP THE CHARS WRITTEN FOR EACH LANGUAGE ----------- vv
         for (let i = 0; i < data.length; i++) {
           let currRepo = data[i];
-          for (let language in currRepo.languages) {
+          for (let language in currRepo.graphData.languages) {
             switch (language) {
               case "HTML":
-                languageSums.HTML += currRepo.languages[language];
+                languageSums.HTML += currRepo.graphData.languages[language];
                 break;
               case "CSS" || "SCSS":
-                languageSums.CSS += currRepo.languages[language];
+                languageSums.CSS += currRepo.graphData.languages[language];
                 break;
               case "JavaScript":
-                languageSums.JavaScript += currRepo.languages[language];
+                languageSums.JavaScript +=
+                  currRepo.graphData.languages[language];
                 break;
               case "Python":
-                languageSums.Python += currRepo.languages[language];
+                languageSums.Python += currRepo.graphData.languages[language];
                 break;
               case "Dockerfile":
-                languageSums.Docker += currRepo.languages[language];
+                languageSums.Docker += currRepo.graphData.languages[language];
                 break;
               case "Ruby":
-                languageSums.Ruby += currRepo.languages[language];
+                languageSums.Ruby += currRepo.graphData.languages[language];
                 break;
               case "Shell":
-                languageSums.Shell += currRepo.languages[language];
+                languageSums.Shell += currRepo.graphData.languages[language];
                 break;
               case "TypeScript":
-                languageSums.TypeScript += currRepo.languages[language];
+                languageSums.TypeScript +=
+                  currRepo.graphData.languages[language];
                 break;
             }
           }
@@ -193,10 +197,10 @@ const LanguagesGraph = () => {
       //
       //
       // DESTRUCTURING THE DATA RETURNED FROM OUR calculateLangSums FUNCTION
-      const { chartData, languageSums } = calculateLangSums(finalData);
+      const { chartData, languageSums } = calculateLangSums(repoData);
       setLanguageData({ logged: chartData, raw: languageSums });
     }
-    console.log(calculateAppTypes(fetchedData.data))
+    // console.log(calculateAppTypes(fetchedData.data))
 
     getRepoData();
   }, []);
@@ -218,7 +222,6 @@ const LanguagesGraph = () => {
 
   return (
     <div id="radar-chart-container">
-      {/* {console.log(chartOptions)} */}
       {languageData && (
         <>
           <div id="radar-chart">

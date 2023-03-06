@@ -40,33 +40,33 @@ const API_URL_2 = "http://localhost:3001/api/gh-repos/languages";
 const GithubInfo = ({ loading }) => {
   const [repoData, setRepoData] = useState(null);
 
-  async function getRepoData() {
-    const response = await fetch(API_URL);
-    const fetchedData = await response.json(response);
-    // console.log(fetchedData.data)
-    const formattedData = fetchedData.data.map((repo) => {
-      return [repo.name, repo.html_url, repo.pushed_at, repo.languages_url];
-    });
-    // console.log(formattedData);
-    const finalData = await Promise.all(
-      formattedData.map(async (repo) => {
-        const languageList = await fetch(`${API_URL_2}?url=${repo[3]}`);
-        const repoLanguages = await languageList.json();
-        return {
-          name: repo[0],
-          url: repo[1],
-          pushed_at: repo[2],
-          languages: [...Object.keys(repoLanguages)],
-        };
-      })
-    );
-    // console.log(finalData);
-    setRepoData(finalData);
-  }
+  // async function getRepoData() {
+  //   const response = await fetch(API_URL);
+  //   const fetchedData = await response.json(response);
+  //   // console.log(fetchedData.data)
+  //   const formattedData = fetchedData.data.map((repo) => {
+  //     return [repo.name, repo.html_url, repo.pushed_at, repo.languages_url];
+  //   });
+  //   // console.log(formattedData);
+  //   const finalData = await Promise.all(
+  //     formattedData.map(async (repo) => {
+  //       const languageList = await fetch(`${API_URL_2}?url=${repo[3]}`);
+  //       const repoLanguages = await languageList.json();
+  //       return {
+  //         name: repo[0],
+  //         url: repo[1],
+  //         pushed_at: repo[2],
+  //         languages: [...Object.keys(repoLanguages)],
+  //       };
+  //     })
+  //   );
+  //   // console.log(finalData);
+  //   setRepoData(finalData);
+  // }
 
-  useEffect(() => {
-    getRepoData();
-  }, []);
+  // useEffect(() => {
+  //   getRepoData();
+  // }, []);
 
   const convertDateToDays = (dateStr) => {
     let yearDays = parseInt(dateStr.slice(0, 4)) * 365;
