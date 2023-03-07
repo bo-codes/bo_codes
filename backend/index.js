@@ -11,6 +11,8 @@ app.use(cors());
 
 const token = process.env.GH_AUTH;
 
+const path = require("path");
+console.log(path.resolve(__dirname, "/frontend", "build", "index.html"));
 // ---------- BOILER PLATE TO RUN REACT APP IN PRODUCTION ---------- vv
 if (process.env.NODE_ENV === "production") {
   const path = require("path");
