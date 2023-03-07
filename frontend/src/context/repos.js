@@ -12,7 +12,8 @@ const Provider = ({children}) => {
   let repoState;
 
   async function getRepos() {
-
+    console.log(process.env, "PROCESS ENV")
+    
     // FETCHING ALL REPOS
     const response = await fetch(API_URL);
     const fetchedData = await response.json(response);
