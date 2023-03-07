@@ -12,7 +12,7 @@ router.use(express.static("public"));
 
 
 // const path = require("path");
-// console.log(path.resolve(__dirname, "/frontend", "build", "index.html"));
+// console.log(path.resolve(__dirname, "../../frontend/build"));
 // ---------- BOILER PLATE TO RUN REACT APP IN PRODUCTION ---------- vv
 if (process.env.NODE_ENV === "production") {
   const path = require("path");
@@ -23,7 +23,7 @@ if (process.env.NODE_ENV === "production") {
   });
 
   // Serve the static assets in the frontend's build folder
-  router.use(express.static(path.resolve("../../frontend/build")));
+  router.use(express.static(path.resolve(__dirname, "../../frontend/build")));
 
   // // Serve the frontend's index.html file at all other routes NOT starting with /api
   router.get(/^(?!\/?api).*/, (req, res) => {
