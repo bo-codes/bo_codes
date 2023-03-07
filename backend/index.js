@@ -8,6 +8,7 @@ const { Octokit } = require("@octokit/core");
 const cors = require("cors");
 const { response } = require("express");
 app.use(cors());
+app.use(express.static("public"));
 
 const token = process.env.GH_AUTH;
 
@@ -23,7 +24,7 @@ if (process.env.NODE_ENV === "production") {
   });
 
   // Serve the static assets in the frontend's build folder
-  app.use(express.static(path.resolve("../frontend/build")));
+  app.use(express.static(path.resolve("../frontend/build/static")));
 
   // Serve the frontend's index.html file at all other routes NOT starting with /api
   app.get(/^(?!\/?api).*/, (req, res) => {
