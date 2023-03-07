@@ -1,13 +1,15 @@
 import AppTypeGraph from "../../components/AppTypeGraph/AppTypeGraph";
 import LanguagesGraph from "../../components/LanguagesGraph/LanguagesGraph";
-import "./ProjectsPage.css"
+import "./ProjectsPage.css";
 
-function ProjectsPage() {
+function ProjectsPage({ loading }) {
   return (
-    <div id="projects-page-container">
-      <LanguagesGraph />
-      <AppTypeGraph />
-    </div>
+    !loading && (
+      <div id="projects-page-container">
+        <LanguagesGraph />
+        <AppTypeGraph />
+      </div>
+    )
   );
 }
 
