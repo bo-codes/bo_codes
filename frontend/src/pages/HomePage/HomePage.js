@@ -1,5 +1,5 @@
 import "./HomePage.css";
-import GithubSection from "../../components/GithubSection/GithubSection";
+import GithubSection from "../../components/GithubSection/GithubSection"
 
 
 function HomePage({data, loading}) {
