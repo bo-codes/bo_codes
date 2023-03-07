@@ -94,3 +94,5 @@ app.get(
 const PORT = process.env.PORT || 3001;
 console.log("server started on port:", PORT);
 app.listen(PORT);
+
+module.exports = app;
