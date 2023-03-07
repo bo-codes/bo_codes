@@ -3,6 +3,9 @@ require("dotenv").config();
 const asyncHandler = require("express-async-handler");
 const { fetchDataForAllYears } = require("../../fetch");
 const { Octokit } = require("@octokit/core");
+// TESTING TO SEE IF WE HAVE ACCESS TO .ENV FILE
+// const test = require("dotenv").config();
+// console.log(test);
 
 const router = express.Router();
 
