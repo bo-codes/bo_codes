@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import "./GithubInfo.css";
 import {
   SiJavascript,
@@ -33,40 +33,22 @@ import {
   SiAdobeillustrator,
   SiAdobelightroom,
 } from "react-icons/si";
-
-const API_URL = "http://localhost:3001/api/gh-repos/";
-const API_URL_2 = "http://localhost:3001/api/gh-repos/languages";
+import ReposContext from "../../context/repos";
 
 const GithubInfo = ({ loading }) => {
-  const [repoData, setRepoData] = useState(null);
+  const [repoListData, setRepoListData] = useState(null);
+  const { repoData } = useContext(ReposContext);
 
-  // async function getRepoData() {
-  //   const response = await fetch(API_URL);
-  //   const fetchedData = await response.json(response);
-  //   // console.log(fetchedData.data)
-  //   const formattedData = fetchedData.data.map((repo) => {
-  //     return [repo.name, repo.html_url, repo.pushed_at, repo.languages_url];
-  //   });
-  //   // console.log(formattedData);
-  //   const finalData = await Promise.all(
-  //     formattedData.map(async (repo) => {
-  //       const languageList = await fetch(`${API_URL_2}?url=${repo[3]}`);
-  //       const repoLanguages = await languageList.json();
-  //       return {
-  //         name: repo[0],
-  //         url: repo[1],
-  //         pushed_at: repo[2],
-  //         languages: [...Object.keys(repoLanguages)],
-  //       };
-  //     })
-  //   );
-  //   // console.log(finalData);
-  //   setRepoData(finalData);
-  // }
+  async function getRepoData() {
+    const finalData = repoData.map((repo) => {
+      return repo.repoListData;
+    });
+    setRepoListData(finalData);
+  }
 
-  // useEffect(() => {
-  //   getRepoData();
-  // }, []);
+  useEffect(() => {
+    getRepoData();
+  }, []);
 
   const convertDateToDays = (dateStr) => {
     let yearDays = parseInt(dateStr.slice(0, 4)) * 365;
@@ -78,19 +60,14 @@ const GithubInfo = ({ loading }) => {
   };
 
   const repoList = () => {
-    repoData.sort((a, b) => {
+    repoListData.sort((a, b) => {
       return convertDateToDays(b.pushed_at) - convertDateToDays(a.pushed_at);
     });
 
-    return repoData.slice(0, 6).map((repo, i) => {
+    return repoListData.slice(0, 6).map((repo, i) => {
       return (
         <li key={i} id="repo-link-container">
-          <a
-            id="repo-link"
-            href={repo.url}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a id="repo-link" href={repo.url} target="_blank" rel="noreferrer">
             <div id="repo-link-and-languages-container">
               <div>{repo.name}</div>
               <div id="languages-container">
@@ -139,7 +116,7 @@ const GithubInfo = ({ loading }) => {
   return (
     <div id="repos-section">
       <div id="currently-working-on">CURRENTLY WORKING ON</div>
-      {repoData && <ul id="repo-list-container">{repoList()}</ul>}
+      {repoListData && <ul id="repo-list-container">{repoList()}</ul>}
     </div>
   );
 };
