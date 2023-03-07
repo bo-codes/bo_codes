@@ -5,10 +5,7 @@ const apiRouter = require("./api");
 
 router.use('/api', apiRouter);
 
-
 router.use(express.static("public"));
-
-
 
 
 // const path = require("path");
