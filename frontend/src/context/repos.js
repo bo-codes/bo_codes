@@ -3,14 +3,14 @@ import { createContext, useEffect, useState } from "react";
 const ReposContext = createContext();
 
 const Provider = ({children}) => {
-  const API_URL = "/api/gh/repos";
-  const API_URL_2 = "/api/gh/repos/languages";
+  const API_URL = "http://localhost:3001/api/gh/repos";
+  const API_URL_2 = "http://localhost:3001/api/gh/repos/languages";
 
 
   const [repoData, setRepoData] = useState(null);
 
   async function getRepos() {
-    console.log(process.env.GH_AUTH, "PROCESS ENV")
+    // console.log(process.env.GH_AUTH, "PROCESS ENV")
 
     // FETCHING ALL REPOS
     const response = await fetch(API_URL);
