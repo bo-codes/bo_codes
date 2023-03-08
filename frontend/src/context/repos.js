@@ -3,8 +3,8 @@ import { createContext, useEffect, useState } from "react";
 const ReposContext = createContext();
 
 const Provider = ({children}) => {
-  const API_URL = "http://localhost:3001/api/gh/repos";
-  const API_URL_2 = "http://localhost:3001/api/gh/repos/languages";
+  const API_URL = "/api/gh/repos";
+  const API_URL_2 = "/api/gh/repos/languages";
 
 
   const [repoData, setRepoData] = useState(null);
