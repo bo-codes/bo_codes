@@ -4,8 +4,8 @@ const asyncHandler = require("express-async-handler");
 const { fetchDataForAllYears } = require("../../fetch");
 const { Octokit } = require("@octokit/core");
 // TESTING TO SEE IF WE HAVE ACCESS TO .ENV FILE
-const test = require("dotenv").config();
-console.log(process.env.GH_AUTH, "TEST");
+// const test = require("dotenv").config();
+// console.log(process.env.GH_AUTH, "TEST");
 
 const router = express.Router();
 
@@ -35,7 +35,7 @@ router.get(
       auth: process.env.GH_AUTH,
     });
 
-    console.log("HIT REPOS", token);
+    // console.log("HIT REPOS", token);
     const repoData = await octokit.request(
       "GET https://api.github.com/user/repos",
       {
