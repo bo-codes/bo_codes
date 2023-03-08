@@ -12,6 +12,15 @@ if (process.env.NODE_ENV !== "production") {
   app.use(cors());
 }
 
+// ---------- helmet ---------- vv//
+// helmet helps set a variety of headers to better secure your app
+app.use(
+    helmet.crossOriginResourcePolicy({
+        policy: "cross-origin",
+    })
+);
+// ---------- helmet ---------- ^^//
+
 app.use(routes);
 
 // if not in production use the port 3001
