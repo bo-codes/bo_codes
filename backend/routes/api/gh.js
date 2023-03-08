@@ -53,19 +53,23 @@ router.get(
 router.get(
   "/repos/languages",
   asyncHandler(async (req, res) => {
-    console.log("HIT LANGUAGES");
-    const language_url = req.query.url;
+    let language_url = req.query.url;
+    // console.log(language_url)
+    let url = language_url.slice(0,4) + language_url.slice(5)
+    // console.log("HIT LANGUAGES", url);
     const octokit = new Octokit({
       auth: process.env.GH_AUTH,
     });
 
-    const repoData = await octokit.request(`GET ${language_url}`, {
-      username: "bo-codes",
-      headers: {
-        authorization: `Bearer ${token}`,
-        "X-GitHub-Api-Version": "2022-11-28",
-      },
-    });
+    const repoData = await octokit.request(`GET ${url}`,
+    // {
+    //   username: "bo-codes",
+    //   headers: {
+    //     authorization: `Bearer ${token}`,
+    //     "X-GitHub-Api-Version": "2022-11-28",
+    //   },
+    // }
+    );
     return res.json(repoData.data);
   })
 );
