@@ -10,7 +10,7 @@ const Provider = ({children}) => {
   const [repoData, setRepoData] = useState(null);
 
   async function getRepos() {
-    // console.log(process.env.GH_AUTH, "PROCESS ENV")
+    console.log(process.env.GH_AUTH, "PROCESS ENV")
 
     // FETCHING ALL REPOS
     const response = await fetch(API_URL);

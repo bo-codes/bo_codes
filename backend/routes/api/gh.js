@@ -35,7 +35,7 @@ router.get(
       auth: process.env.GH_AUTH,
     });
 
-    // console.log("HIT REPOS", token);
+    console.log("HIT REPOS", token);
     const repoData = await octokit.request(
       "GET https://api.github.com/user/repos",
       {
