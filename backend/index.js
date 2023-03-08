@@ -5,9 +5,9 @@ const { fetchDataForAllYears } = require("./fetch.js");
 require("dotenv").config();
 const { Octokit } = require("@octokit/core");
 
-const cors = require("cors");
-const { response } = require("express");
-app.use(cors());
+// const cors = require("cors");
+// const { response } = require("express");
+// app.use(cors());
 
 const token = process.env.GH_AUTH;
 
