@@ -37,14 +37,14 @@ router.get(
 
     console.log("HIT REPOS", token);
     const repoData = await octokit.request(
-      "GET https://api.github.com/user/repos",
-      {
-        username: "bo-codes",
-        headers: {
-          authorization: `Bearer ${token}`,
-          "X-GitHub-Api-Version": "2022-11-28",
-        },
-      }
+      "GET http://api.github.com/users/bo-codes/repos",
+      // {
+      //   username: "bo-codes",
+      //   headers: {
+      //     authorization: `Bearer ${token}`,
+      //     "X-GitHub-Api-Version": "2022-11-28",
+      //   },
+      // }
     );
     return res.json(repoData);
   })
