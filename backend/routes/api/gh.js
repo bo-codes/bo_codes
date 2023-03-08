@@ -35,42 +35,38 @@ router.get(
       auth: process.env.GH_AUTH,
     });
 
-    console.log("HIT REPOS", token);
+    // console.log("HIT REPOS", token);
     const repoData = await octokit.request(
-      "GET http://api.github.com/users/bo-codes/repos",
-      // {
-      //   username: "bo-codes",
-      //   headers: {
-      //     authorization: `Bearer ${token}`,
-      //     "X-GitHub-Api-Version": "2022-11-28",
-      //   },
-      // }
+      "GET https://api.github.com/user/repos",
+      {
+        username: "bo-codes",
+        headers: {
+          authorization: `Bearer ${token}`,
+          "X-GitHub-Api-Version": "2022-11-28",
+        },
+      }
     );
     return res.json(repoData);
   })
 );
-// FULLY FUNCTIONAL, BUT LIMITED API
 
 router.get(
   "/repos/languages",
   asyncHandler(async (req, res) => {
-    let language_url = req.query.url;
-    // console.log(language_url)
-    let url = language_url.slice(0,4) + language_url.slice(5)
-    // console.log("HIT LANGUAGES", url);
+    // console.log("HIT LANGUAGES");
+    const language_url = req.query.url;
+    let url = language_url.slice(0, 4) + language_url.slice(5);
     const octokit = new Octokit({
       auth: process.env.GH_AUTH,
     });
 
-    const repoData = await octokit.request(`GET ${url}`,
-    // {
-    //   username: "bo-codes",
-    //   headers: {
-    //     authorization: `Bearer ${token}`,
-    //     "X-GitHub-Api-Version": "2022-11-28",
-    //   },
-    // }
-    );
+    const repoData = await octokit.request(`GET ${url}`, {
+      username: "bo-codes",
+      headers: {
+        authorization: `Bearer ${token}`,
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
+    });
     return res.json(repoData.data);
   })
 );
