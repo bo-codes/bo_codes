@@ -7,6 +7,7 @@ const helmet = require("helmet");
 
 const app = express();
 
+app.use(cors());
 
 if (process.env.NODE_ENV !== "production") {
   // enable cors only in development
