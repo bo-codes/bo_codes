@@ -1,10 +1,11 @@
+import GithubSection from "../../components/GithubSection/GithubSection"
 import "./HomePage.css";
 
 function HomePage({ data, loading }) {
   return (
     <div className="section-wrapper">
       <div id="github-container" className="section">
-        {/* <GithubSection data={data} loading={loading} /> */}
+        <GithubSection data={data} loading={loading} />
       </div>
     </div>
   );

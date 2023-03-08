@@ -11,4 +11,4 @@ const GithubSection = ({data, loading}) => {
   );
 };
 
-export default GithubSection
+export default GithubSection;

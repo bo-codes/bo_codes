@@ -22,25 +22,25 @@ const GithubCommits = ({ data, loading }) => {
     });
   };
 
-  // const _renderLoading = () => {
-  //   return (
-  //     <div id="gh-loading">
-  //       {/* <img src={"/loading.gif"} alt="Loading..." width={200} /> */}
-  //       <p>Activity Loading..</p>
-  //     </div>
-  //   );
-  // };
+  const _renderLoading = () => {
+    return (
+      <div id="gh-loading">
+        {/* <img src={"/loading.gif"} alt="Loading..." width={200} /> */}
+        <p>Activity Loading..</p>
+      </div>
+    );
+  };
 
   // ------------ THIS IS THE GRAPH/DATA DISPLAY ------------ //
-  const _renderGraphs = (
+  const _renderGraphs = () => (
     <div>{data !== null && <canvas id="gh-content" ref={canvasRef} />}</div>
   );
   // ------------ THIS IS THE GRAPH/DATA DISPLAY ------------ //
 
   return (
     <section id="gh-section-container">
-      {/* {loading && _renderLoading()} */}
-      {!loading && _renderGraphs}
+      {loading && _renderLoading()}
+      {!loading && _renderGraphs()}
     </section>
   );
 };
