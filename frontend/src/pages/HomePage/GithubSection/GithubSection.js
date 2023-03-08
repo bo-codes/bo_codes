@@ -1,4 +1,4 @@
-import GithubCommits from "../GithubCommits/GithubCommits";
+import GithubCommits from "../GithubCommits/GithubCommits"
 import GithubInfo from "../GithubInfo/GithubInfo";
 import './GithubSection.css'
 

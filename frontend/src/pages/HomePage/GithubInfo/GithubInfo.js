@@ -33,7 +33,7 @@ import {
   SiAdobeillustrator,
   SiAdobelightroom,
 } from "react-icons/si";
-import ReposContext from "../../context/repos";
+import ReposContext from "../../../context/repos";
 
 const GithubInfo = ({ loading }) => {
   const [repoListData, setRepoListData] = useState(null);

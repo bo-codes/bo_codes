@@ -1,4 +1,4 @@
-import GithubSection from "../../components/GithubSection/GithubSection"
+import GithubSection from "./GithubSection/GithubSection"
 import "./HomePage.css";
 
 function HomePage({ data, loading }) {
