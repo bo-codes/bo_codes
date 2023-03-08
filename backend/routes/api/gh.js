@@ -37,7 +37,7 @@ router.get(
 
     // console.log("HIT REPOS", token);
     const repoData = await octokit.request(
-      "GET http://api.github.com/user/repos",
+      "GET https://api.github.com/user/repos",
       {
         username: "bo-codes",
         headers: {
@@ -60,7 +60,7 @@ router.get(
       auth: process.env.GH_AUTH,
     });
 
-    const repoData = await octokit.request(`GET ${url}`, {
+    const repoData = await octokit.request(`GET ${language_url}`, {
       username: "bo-codes",
       headers: {
         authorization: `Bearer ${token}`,
