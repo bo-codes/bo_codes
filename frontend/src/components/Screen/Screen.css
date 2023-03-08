@@ -378,3 +378,20 @@
       0 0 4px rgba(255, 255, 255, 0.751),
       0 0 6px rgb(255, 255, 255);
 }
+
+@media screen and (max-width: 650px) {
+  #screen {
+    height: 40vw;
+  }
+  .static {
+    height: 40vw;
+  }
+
+  #screen::before {
+    height: 40vw;
+  }
+
+  #screen::after {
+    height: 40vw;
+  }
+}

@@ -18,15 +18,6 @@
   font-size: 1.4vw;
 }
 
-/* #github-container {
-  display: flex;
-  margin-left: 4vw;
-  margin-top: 2vw;
-} */
-
-@media screen and (max-width: 620px) {
-  #github-container {
-    flex-direction: column;
-    margin-left: 0;
-  }
+#github-container {
+  /* border: 1px solid orange; */
 }
