@@ -3,8 +3,15 @@ import { createContext, useEffect, useState } from "react";
 const ReposContext = createContext();
 
 const Provider = ({children}) => {
-  const API_URL = "/api/gh/repos";
-  const API_URL_2 = "/api/gh/repos/languages";
+  let API_URL;
+  {process.env.NODE_ENV !== "production"
+    ? (API_URL = "http://localhost:3001/api/gh/repos")
+    : (API_URL = "https://bo-codes.herokuapp.com/api/gh/repos");
+  }
+  let API_URL_2;
+  {process.env.NODE_ENV !== "production"
+    ? (API_URL_2 = "http://localhost:3001/api/gh/repos/languages")
+    : (API_URL_2 = "https://bo-codes.herokuapp.com/api/gh/repos/languages");}
 
 
   const [repoData, setRepoData] = useState(null);
@@ -13,6 +20,7 @@ const Provider = ({children}) => {
     // console.log(process.env.GH_AUTH, "PROCESS ENV")
 
     // FETCHING ALL REPOS
+    // console.log(API_URL)
     const response = await fetch(API_URL, {
       // headers: {
       //   "Access-Control-Allow-Origin": "*",
