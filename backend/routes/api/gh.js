@@ -43,6 +43,7 @@ router.get(
         headers: {
           authorization: `Bearer ${token}`,
           "X-GitHub-Api-Version": "2022-11-28",
+          "Access-Control-Allow-Origin": "*"
         },
       }
     );
@@ -65,6 +66,7 @@ router.get(
       headers: {
         authorization: `Bearer ${token}`,
         "X-GitHub-Api-Version": "2022-11-28",
+        "Access-Control-Allow-Origin": "*",
       },
     });
     return res.json(repoData.data);
