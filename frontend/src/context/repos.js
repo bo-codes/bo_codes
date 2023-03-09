@@ -13,7 +13,11 @@ const Provider = ({children}) => {
     // console.log(process.env.GH_AUTH, "PROCESS ENV")
 
     // FETCHING ALL REPOS
-    const response = await fetch(API_URL);
+    const response = await fetch(API_URL, {
+      headers: {
+        "Access-Control-Allow-Origin": "*"
+      }
+    });
     const fetchedData = await response.json(response);
     const allRepoData = fetchedData.data;
 
@@ -25,7 +29,11 @@ const Provider = ({children}) => {
     // USING REPOS LIST FETCHED ABOVE TO GET LANGUAGE DATA FOR ALL REPOS
     const compiledRepoComponentData = await Promise.all(
       repoListData.map(async (repo) => {
-        const languageList = await fetch(`${API_URL_2}?url=${repo[3]}`);
+        const languageList = await fetch(`${API_URL_2}?url=${repo[3]}`, {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+          },
+        });
         const repoLanguages = await languageList.json();
         return {
           rawRepoData: [
