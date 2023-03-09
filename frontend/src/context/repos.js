@@ -18,6 +18,9 @@ const Provider = ({children}) => {
 
   async function getRepos() {
     // console.log(process.env.GH_AUTH, "PROCESS ENV")
+    console.log(API_URL, "API_URL")
+    console.log(API_URL_2, "API_URL_2")
+    console.log(process.env.NODE_ENV, "NODE_ENV")
 
     // FETCHING ALL REPOS
     // console.log(API_URL)
