@@ -114,7 +114,11 @@ function App() {
         />
         <Route path="/experience" exact={true} element={<ExperiencePage />} />
         <Route path="/skills" exact={true} element={<SkillsPage />} />
-        <Route path="/projects" exact={true} element={<ProjectsPage loading={loading}/>} />
+        <Route
+          path="/projects"
+          exact={true}
+          element={<ProjectsPage loading={loading} />}
+        />
         <Route path="/contact" exact={true} element={<ContactPage />} />
       </Routes>
     </>
