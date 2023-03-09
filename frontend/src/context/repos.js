@@ -15,7 +15,8 @@ const Provider = ({children}) => {
     // FETCHING ALL REPOS
     const response = await fetch(API_URL, {
       headers: {
-        "Access-Control-Allow-Origin": "*"
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval"
       }
     });
     const fetchedData = await response.json(response);
@@ -32,6 +33,8 @@ const Provider = ({children}) => {
         const languageList = await fetch(`${API_URL_2}?url=${repo[3]}`, {
           headers: {
             "Access-Control-Allow-Origin": "*",
+            "Access-Control-Expose-Headers":
+              "ETag, Link, X-GitHub-OTP, x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
           },
         });
         const repoLanguages = await languageList.json();

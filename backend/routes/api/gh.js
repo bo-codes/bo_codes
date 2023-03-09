@@ -9,7 +9,7 @@ const { Octokit } = require("@octokit/core");
 
 const router = express.Router();
 
-const token = process.env.GH_AUTH || "bobo"
+const token = process.env.GH_AUTH || "bobo";
 
 router.get(
   "/",
@@ -43,7 +43,9 @@ router.get(
         headers: {
           authorization: `Bearer ${token}`,
           "X-GitHub-Api-Version": "2022-11-28",
-          "Access-Control-Allow-Origin": "*"
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Expose-Headers":
+            "ETag, Link, X-GitHub-OTP, x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
         },
       }
     );
@@ -67,6 +69,8 @@ router.get(
         authorization: `Bearer ${token}`,
         "X-GitHub-Api-Version": "2022-11-28",
         "Access-Control-Allow-Origin": "*",
+        "Access-Control-Expose-Headers":
+          "ETag, Link, X-GitHub-OTP, x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
       },
     });
     return res.json(repoData.data);
