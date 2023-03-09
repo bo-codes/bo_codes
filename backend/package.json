@@ -4,5 +4,5 @@
     "dotenv": "^16.0.3",
     "helmet": "^6.0.1"
   },
-  "proxy": "http://localhost:3001"
+  "proxy": "https://localhost:3001"
 }
