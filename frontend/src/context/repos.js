@@ -6,7 +6,7 @@ const Provider = ({children}) => {
   let API_URL;
   {process.env.NODE_ENV !== "production"
     ? (API_URL = "http://localhost:3001/api/gh/repos")
-    : (API_URL = "http://bo-codes.herokuapp.com/api/gh/repos");
+    : (API_URL = "https://bo-codes.herokuapp.com/api/gh/repos");
   }
   let API_URL_2;
   {process.env.NODE_ENV !== "production"
