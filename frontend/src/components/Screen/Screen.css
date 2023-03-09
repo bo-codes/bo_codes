@@ -307,10 +307,8 @@
   justify-content: top;
   align-items: center;
   /* background-image: repeating-radial-gradient(circle at 30% 30%, white, black 0.00035px); */
-  background-image: url("../../img/homepage/static.gif");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  /* background-image: url("../../img/homepage/static.gif"); */
+  background-color: grey;
   /* animation: tv-static 5s linear infinite; */
   filter: blur(.5px);
   box-shadow:
