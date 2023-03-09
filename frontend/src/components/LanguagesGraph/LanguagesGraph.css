@@ -27,12 +27,45 @@
 #chart-raw-metrics {
   display: flex;
   flex-direction: column;
+  font-size: 1.2vw;
   /* justify-content: space-between; */
   /* border: 1px solid green; */
   width: 11vw;
   /* padding-bottom: 1vw; */
 }
+#metric-lang-num-container {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+  /* border: 1px solid blue; */
+}
 
 #metric-number {
   margin-bottom: .8vw;
+}
+
+@media screen and (max-width: 860px) {
+  #radar-chart-container {
+    justify-content: space-between;
+    width: 100%;
+    padding: 0;
+  }
+  #radar-chart {
+    width: 70vw;
+    height: 70vw;
+    /* margin-right: 1.9vw;
+    margin-left: 1.9vw; */
+  }
+  #chart-raw-metrics {
+  /* border: 1px solid green; */
+    font-size: 2.2vw;
+    width: 26vw;
+    /* width: 100%; */
+  }
+  #metric-lang-num-container {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    padding-left: 4vw;
+  }
 }

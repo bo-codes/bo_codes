@@ -149,7 +149,7 @@ const LanguagesGraph = () => {
             <div id="chart-raw-metrics">
               {Object.keys(languageData.raw).map((lang, i) => {
                 return (
-                  <div key={i}>
+                  <div key={i} id="metric-lang-num-container">
                     <div>{lang}:</div>
                     <div id="metric-number">{languageData.raw[lang]}</div>
                   </div>

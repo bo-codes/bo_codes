@@ -394,7 +394,7 @@
       0 0 6px rgb(255, 255, 255);
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 475px) {
   #screen {
     height: 40vw;
   }
