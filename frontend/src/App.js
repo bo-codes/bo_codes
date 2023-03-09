@@ -19,7 +19,6 @@ let API_URL;
     : (API_URL = "https://bo-codes.herokuapp.com/api/gh/");
 }
 
-
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [loading, setLoading] = useState(true);
@@ -95,7 +94,8 @@ function App() {
     case "/":
       if (loading || isLoading) {
         {
-          user.browser.family == "Safari"
+          user.browser.family == "Safari" ||
+          user.browser.family.includes("Mobile")
             ? (currScreen = <div className="altstatic"></div>)
             : (currScreen = <div className="static"></div>);
         }
@@ -105,11 +105,12 @@ function App() {
       break;
     default:
       if (loading || isLoading) {
-        {user.browser.family == 'Safari' ? (
-          currScreen = <div className="altstatic"></div>
-        ) : (
-          currScreen = <div className="static"></div>
-        )}
+        {
+          user.browser.family == "Safari" ||
+          user.browser.family.includes("Mobile")
+            ? (currScreen = <div className="altstatic"></div>)
+            : (currScreen = <div className="static"></div>);
+        }
       } else {
         currScreen = <Screen />;
       }
