@@ -398,7 +398,12 @@
   #screen {
     height: 40vw;
   }
+
   .static {
+    height: 40vw;
+  }
+
+  .altstatic {
     height: 40vw;
   }
 
