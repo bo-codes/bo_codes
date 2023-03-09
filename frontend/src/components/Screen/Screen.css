@@ -306,8 +306,12 @@
   flex-direction: column;
   justify-content: top;
   align-items: center;
-  background-image: repeating-radial-gradient(circle at 30% 30%, white, black 0.00035px);
-  animation: tv-static 5s linear infinite;
+  /* background-image: repeating-radial-gradient(circle at 30% 30%, white, black 0.00035px); */
+  background-image: url("../../img/homepage/static.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* animation: tv-static 5s linear infinite; */
   filter: blur(.5px);
   box-shadow:
       0 0 55px rgba(255, 255, 255, 0.318),
