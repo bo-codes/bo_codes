@@ -10,7 +10,7 @@ const Provider = ({children}) => {
   }
   let API_URL_2;
   {process.env.NODE_ENV !== "production"
-    ? (API_URL_2 = "https://localhost:3001/api/gh/repos/languages")
+    ? (API_URL_2 = "http://localhost:3001/api/gh/repos/languages")
     : (API_URL_2 = "https://bo-codes.herokuapp.com/api/gh/repos/languages");}
 
 

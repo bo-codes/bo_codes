@@ -318,6 +318,27 @@
       cursor: url("../../img/cursors/CrosshairNormal.cur"), auto;
 }
 
+/* STATIC CODE */
+.altstatic {
+  height: 30vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+  background-image: url("../../img/homepage/static.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(.5px);
+  box-shadow:
+      0 0 55px rgba(255, 255, 255, 0.318),
+      0 0 56px rgba(255, 255, 255, 0.275),
+      0 0 56px rgba(255, 255, 255, 0.253),
+      0 0 56px rgba(255, 255, 255, 0.276),
+      0 0 51px rgba(255, 255, 255, 0.311);
+      cursor: url("../../img/cursors/CrosshairNormal.cur"), auto;
+}
+
 @keyframes tv-static {
   from {
     background-size: 18% 18%;

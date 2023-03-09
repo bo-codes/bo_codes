@@ -8,6 +8,10 @@ import SkillsPage from "./pages/SkillsPage/SkillsPage";
 import ProjectsPage from "./pages/ProjectsPage/ProejctsPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
 import Screen from "./components/Screen/Screen";
+import detect from "detect.js";
+
+const user = detect.parse(navigator.userAgent);
+
 let API_URL;
 {
   process.env.NODE_ENV !== "production"
@@ -90,14 +94,22 @@ function App() {
   switch (location.pathname) {
     case "/":
       if (loading || isLoading) {
-        currScreen = <div className="static"></div>;
+        {
+          user.browser.family == "Safari"
+            ? (currScreen = <div className="altstatic"></div>)
+            : (currScreen = <div className="static"></div>);
+        }
       } else {
         currScreen = <Screen />;
       }
       break;
     default:
       if (loading || isLoading) {
-        currScreen = <div className="static"></div>;
+        {user.browser.family == 'Safari' ? (
+          currScreen = <div className="altstatic"></div>
+        ) : (
+          currScreen = <div className="static"></div>
+        )}
       } else {
         currScreen = <Screen />;
       }
