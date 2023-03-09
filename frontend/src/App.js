@@ -8,8 +8,13 @@ import SkillsPage from "./pages/SkillsPage/SkillsPage";
 import ProjectsPage from "./pages/ProjectsPage/ProejctsPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
 import Screen from "./components/Screen/Screen";
+let API_URL;
+{
+  process.env.NODE_ENV !== "production"
+    ? (API_URL = "http://localhost:3001/api/gh/")
+    : (API_URL = "http://bo-codes.herokuapp.com/api/gh/");
+}
 
-const API_URL = "http://localhost:3001/api/gh/";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
