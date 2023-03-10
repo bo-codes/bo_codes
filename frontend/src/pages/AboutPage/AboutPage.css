@@ -23,11 +23,12 @@
 }
 
 #full-contact-section {
+  /* border: 1px solid salmon; */
   display: flex;
   justify-content: space-between;
   width: 100vw;
-  height: 46vw;
-  max-height: 400px;
+  height: 55vw;
+  max-height: 430px;
 }
 
 #alt-about-photo {
@@ -66,11 +67,18 @@
   font-weight: 400;
 }
 
+#name-links-and-btn {
+  display: flex;
+  align-items: flex;
+  /* border: 1px solid #0000ff; */
+  margin-bottom: 2vw;
+}
+
 #about-name {
   /* border: 1px solid salmon; */
-  margin-top: 0;
-  margin-bottom: 2vw;
-  font-size: 3vw;
+  margin: 0;
+  line-height: 1;
+  font-size: 5vw;
   letter-spacing: .2vw;
   text-shadow:
       0 0 2px rgba(255, 255, 255, 0.655),
@@ -78,6 +86,15 @@
       0 0 4px rgba(255, 255, 255, 0.571),
       0 0 6px rgba(255, 255, 255, 0.506),
       0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+#about-links {
+  display: flex;
+  justify-content: space-between;
+  width: 8vw;
+  margin-left: 30px;
+  padding-top: .65vw;
+  margin-right: 40px;
 }
 
 .about-p {
@@ -142,11 +159,13 @@
 #top-section-and-btn {
   /* border: 1px solid blue; */
   display: flex;
+  justify-content: space-between;
 }
 
 #contact-top-section {
   /* border: 1px solid orange; */
   width: fit-content;
+  margin-bottom: 2vw;
 }
 
 #contact-name {
@@ -177,6 +196,11 @@
   color: white;
 }
 
+.alt-contact-link {
+  font-size: 2vw;
+  color: white;
+}
+
 #contact-bottom-section {
   /* border: 1px solid blue; */
   /* height: 140px; */
@@ -194,6 +218,7 @@
 .contact-info {
   font-family: "adaptive-mono", monospace;
   letter-spacing: 1.2px;
+  color: rgb(222, 222, 222);
 }
 
 #alt-descr-container {
@@ -229,10 +254,36 @@
   color: black;
   background-color: grey;
   font-weight: 600;
+  text-decoration: none;
+}
+
+#alt-cv-download-btn {
+  display: flex;
+  justify-content: center;
+  padding: 14px;
+  margin-top: .55vw;
+  margin-left: 40px;
+  border-radius: 4px;
+  height: fit-content;
+  width: 120px;
+  /* border: 1px solid purple; */
+  font-family: "adaptive-mono", monospace;
+  color: black;
+  background-color: grey;
+  font-weight: 600;
+  text-decoration: none;
 }
 
 #cv-download-btn:hover {
   background-color: rgb(175, 175, 175);
+}
+
+#alt-cv-download-btn:hover {
+  background-color: rgb(175, 175, 175);
+}
+
+a:hover{
+  cursor: pointer;
 }
 
 @media screen and (max-width: 860px) {

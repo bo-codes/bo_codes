@@ -1,5 +1,6 @@
 import aboutPhoto from "../../img/about/about-2.jpg";
 import { SiLinkedin, SiGithub, SiAngellist } from "react-icons/si";
+import pdf from "../../img/Elias_Rodriguez-Resume-SWE.pdf";
 import "./AboutPage.css";
 
 function AboutPage({ isLoading, loading }) {
@@ -46,7 +47,7 @@ function AboutPage({ isLoading, loading }) {
                         </a>
                       </div>
                     </div>
-                    <a id="cv-download-btn">
+                    <a id="cv-download-btn" href={pdf} download>
                       <span id="optional-dl-btn">Download </span>CV
                     </a>
                   </div>
@@ -94,7 +95,23 @@ function AboutPage({ isLoading, loading }) {
                 style={{ backgroundImage: `url(${aboutPhoto})` }}
               ></div>
               <div id="about-descr-container">
-                <h1 id="about-name">ELI</h1>
+                <div id="name-links-and-btn">
+                  <h1 id="about-name">ELI</h1>
+                  <div id="about-links">
+                    <a className="alt-contact-link">
+                      <SiGithub />
+                    </a>
+                    <a className="alt-contact-link">
+                      <SiLinkedin />
+                    </a>
+                    <a className="alt-contact-link">
+                      <SiAngellist />
+                    </a>
+                  </div>
+                  <a id="alt-cv-download-btn" href={pdf} download>
+                    <span id="optional-dl-btn">Download </span>CV
+                  </a>
+                </div>
                 <div id="about-descr">
                   <div id="about-descr-p1" className="about-p">
                     A <span className="word-emphasis">Software Engineer</span>{" "}

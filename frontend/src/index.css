@@ -2,11 +2,12 @@ body {
   color: white;
   background-color: black;
   margin: 0;
-  cursor: url("./img/cursors/blur.cur"), auto;
+  /* cursor: url("./img/cursors/blur.cur"), auto; */
 }
 
 button {
-  cursor: url("./img//cursors/blur_pointer.cur"), auto;
+  /* cursor: url("./img//cursors/blur_pointer.cur"), auto; */
+  cursor: pointer;
 }
 
 @keyframes screenTurnOn {
