@@ -68,6 +68,10 @@
     font-size: 1.8vw;
   }
 
+  #repo-link-container {
+    margin-bottom: 1.6vw;
+  }
+
 
 }
 
@@ -79,6 +83,10 @@
   #repo-link {
     font-size: 2.2vw;
   }
+
+  #repo-link-container {
+    margin-bottom: 1.6vw;
+  }
 }
 
 @media screen and (max-width: 650px) {
@@ -87,6 +95,32 @@
   }
 
   #repo-link {
-    font-size: 2.4vw;
+    font-size: 2.7vw;
+  }
+
+  #repo-link-container {
+    margin-bottom: 2.6vw;
+    width: 70vw;
+  }
+
+  #repo-link-container {
+    margin-bottom: 1.6vw;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  #currently-working-on {
+    font-size: 4vw;
+    margin-bottom: 6vw;
+  }
+
+  #repo-link {
+    font-size: 3vw;
+    /* margin-bottom: 1vw; */
+  }
+
+  #repo-link-container {
+    margin-bottom: 2.6vw;
+    width: 100%;
   }
 }
