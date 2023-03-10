@@ -212,10 +212,10 @@
 
 .contact-info-container {
   margin-bottom: 10px;
-  font-size: 2.3vw;
 }
 
 .contact-info {
+  font-size: 3vw;
   font-family: "adaptive-mono", monospace;
   letter-spacing: 1.2px;
   color: rgb(222, 222, 222);
@@ -313,6 +313,9 @@ a:hover{
 @media screen and (min-width: 570px) {
   .alt-about-p {
     font-size: 18px;
+  }
+  .contact-info {
+    font-size: 17px;
   }
 }
 
