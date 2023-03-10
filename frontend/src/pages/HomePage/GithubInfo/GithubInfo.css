@@ -49,15 +49,20 @@
 }
 
 #individual-language {
-  margin-left: .16vw;
+  margin-left: .36vw;
+}
+
+@media screen and (min-width: 860px) {
+  #repo-link {
+    font-size: 1.6vw;
+  }
 }
 
 @media screen and (max-width: 860px) {
   #repos-section {
     width: 60%;
-    padding-top: 2vw;
+    padding: 2vw 6vw 6vw 6vw;
     margin-left: 0;
-    padding-left: 2vw;
   }
 
   #currently-working-on {
@@ -72,6 +77,9 @@
     margin-bottom: 1.6vw;
   }
 
+  #individual-language {
+    margin-left: .44vw;
+  }
 
 }
 
@@ -107,8 +115,22 @@
     margin-bottom: 1.6vw;
   }
 
+  #repos-section {
+    /* border: 1px solid orange; */
+    width: 100vw;
+  }
+
   #repo-list-container {
-    /* border: 1px solid blue; */
+    width: 100%;
+  }
+
+  #repo-link-container {
+    margin-bottom: 2.6vw;
+    width: 100%;
+  }
+
+  #individual-language {
+    margin-left: .6vw;
   }
 }
 
@@ -128,11 +150,12 @@
     width: 97%;
   }
 
-  #repo-section {
+  #repos-section {
     width: 100vw;
+    padding: 6vw;
   }
 
   #repo-list-container {
-    width: 100vw;
+    width: 100%;
   }
 }

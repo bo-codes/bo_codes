@@ -14,3 +14,19 @@
     padding: 0;
   }
 }
+
+@media screen and (min-width: 860px) {
+  #gh-content {
+    width: 60vw;
+  }
+
+  #repo-link-container {
+    margin-bottom: 1.4vw;
+  }
+}
+
+@media screen and (min-width: 1350px) {
+  #repo-link {
+    font-size: 21.5px;
+  }
+}
