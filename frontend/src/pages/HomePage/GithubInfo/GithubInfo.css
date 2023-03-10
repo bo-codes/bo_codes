@@ -54,18 +54,18 @@
 
 @media screen and (max-width: 860px) {
   #repos-section {
-    width: 50%;
+    width: 60%;
     padding-top: 2vw;
     margin-left: 0;
     padding-left: 2vw;
   }
 
   #currently-working-on {
-    font-size: 2.2vw;
+    font-size: 2.8vw;
   }
 
   #repo-link {
-    font-size: 1.8vw;
+    font-size: 2.2vw;
   }
 
   #repo-link-container {
@@ -77,11 +77,11 @@
 
 @media screen and (max-width: 750px) {
   #currently-working-on {
-    font-size: 2.4vw;
+    font-size: 3.2vw;
   }
 
   #repo-link {
-    font-size: 2.2vw;
+    font-size: 2.4vw;
   }
 
   #repo-link-container {
@@ -91,7 +91,7 @@
 
 @media screen and (max-width: 650px) {
   #currently-working-on {
-    font-size: 2.6vw;
+    font-size: 3.4vw;
   }
 
   #repo-link {
@@ -110,7 +110,7 @@
 
 @media screen and (max-width: 490px) {
   #currently-working-on {
-    font-size: 4vw;
+    font-size: 3vw;
     margin-bottom: 6vw;
   }
 
@@ -121,6 +121,10 @@
 
   #repo-link-container {
     margin-bottom: 2.6vw;
+    width: 100%;
+  }
+
+  #repo-section {
     width: 100%;
   }
 }
