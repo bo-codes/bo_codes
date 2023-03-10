@@ -22,9 +22,24 @@
   /* border: 1px solid purple; */
 }
 
-#about-photo {
+#full-contact-section {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  height: 46vw;
+  max-height: 400px;
+}
+
+#alt-about-photo {
   height: 22vw;
   width: 22vw;
+  background-size: cover;
+  background-position: center;
+}
+
+#about-photo {
+  height: 100%;
+  width: 27vw;
   background-size: cover;
   background-position: center;
 }
@@ -34,7 +49,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 22vw;
+  height: 100%;
   width: 55vw;
 }
 
@@ -43,7 +58,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   font-family: "adaptive-mono", monospace;
   color: rgb(123, 123, 123);
   letter-spacing: 1.2px;
@@ -67,9 +82,10 @@
 
 .about-p {
   /* border: 1px solid green; */
-  font-size: 1.2vw;
+  /* font-size: 1.2vw; */
+  font-size: 18px;
   letter-spacing: .04vw;
-  /* margin-top: 1.6vw; */
+  margin-top: 1.6vw;
   text-shadow:
       0 0 1px rgba(136, 136, 136, 0.493),
       0 0 2px rgba(159, 159, 159, 0.447),
@@ -104,3 +120,172 @@
       0 0 4px rgba(0, 255, 238, 0.53); */
 }
 
+#alt-contact-section {
+  display: none;
+  width: 100%;
+}
+
+#photo-and-contact {
+  /* border: 1px solid orange; */
+  width: 100%;
+  display: flex;
+}
+
+#about-contact {
+  /* border: 1px solid green; */
+  margin-left: 4vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#top-section-and-btn {
+  /* border: 1px solid blue; */
+  display: flex;
+}
+
+#contact-top-section {
+  /* border: 1px solid orange; */
+  width: fit-content;
+}
+
+#contact-name {
+  font-size: 6.6vw;
+  letter-spacing: .2vw;
+  text-shadow:
+    0 0 2px rgba(255, 255, 255, 0.655),
+    0 0 5px rgba(255, 255, 255, 0.461),
+    0 0 4px rgba(255, 255, 255, 0.571),
+    0 0 6px rgba(255, 255, 255, 0.506),
+    0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+#contact-at {
+  font-size: 2.8vw;
+  color: rgba(161, 161, 161, 0.798);
+}
+
+#contact-link-list {
+  margin-top: 14px;
+  width: 114px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact-link {
+  font-size: 24px;
+  color: white;
+}
+
+#contact-bottom-section {
+  /* border: 1px solid blue; */
+  /* height: 140px; */
+  height: 17vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.contact-info-container {
+  margin-bottom: 10px;
+  font-size: 2.3vw;
+}
+
+.contact-info {
+  font-family: "adaptive-mono", monospace;
+  letter-spacing: 1.2px;
+}
+
+#alt-descr-container {
+  margin-top: 40px;
+  width: 100%;
+}
+
+#alt-about-descr {
+  font-size: 3.3vw;
+}
+
+.alt-about-p {
+  margin-bottom: 33px;
+  letter-spacing: .04vw;
+  /* margin-top: 1.6vw; */
+  text-shadow:
+    0 0 1px rgba(136, 136, 136, 0.493),
+    0 0 2px rgba(159, 159, 159, 0.447),
+    0 0 2px rgba(155, 155, 155, 0.508),
+    0 0 3px rgba(149, 149, 149, 0.436),
+    0 0 4px rgba(157, 157, 157, 0.53);
+  font-family: "adaptive-mono", monospace;
+  color: rgb(123, 123, 123);
+}
+
+#cv-download-btn {
+  padding: 14px;
+  margin-left: 20px;
+  border-radius: 4px;
+  height: fit-content;
+  /* border: 1px solid purple; */
+  font-family: "adaptive-mono", monospace;
+  color: black;
+  background-color: grey;
+  font-weight: 600;
+}
+
+#cv-download-btn:hover {
+  background-color: rgb(175, 175, 175);
+}
+
+@media screen and (max-width: 860px) {
+  #full-contact-section {
+    display: none;
+  }
+
+  #alt-contact-section {
+    display: block;
+  }
+
+  #about-container {
+    flex-wrap: wrap;
+    padding: 0;
+  }
+
+  #alt-about-photo {
+    width: 50vw;
+    height: 50vw;
+  }
+
+  #optional-dl-btn {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 570px) {
+  .alt-about-p {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .contact-info-container {
+    font-size: 17px;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  #top-section-and-btn {
+    flex-direction: column;
+  }
+
+  #optional-dl-btn {
+    display: block;
+    margin-right: 8px;
+  }
+
+  #cv-download-btn {
+    display: flex;
+    justify-content: center;
+    margin-left: 0;
+    margin-top: 20px;
+    width: 100px;
+  }
+}
