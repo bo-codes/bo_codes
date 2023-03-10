@@ -165,7 +165,7 @@
 #contact-top-section {
   /* border: 1px solid orange; */
   width: fit-content;
-  margin-bottom: 2vw;
+  margin-bottom: 1vw;
 }
 
 #contact-name {
@@ -211,10 +211,11 @@
 }
 
 .contact-info-container {
-  margin-bottom: 10px;
+  margin-bottom: 2.5vw;
 }
 
 .contact-info {
+  margin-top: .6vw;
   font-size: 3vw;
   font-family: "adaptive-mono", monospace;
   letter-spacing: 1.2px;
@@ -302,7 +303,7 @@ a:hover{
 
   #alt-about-photo {
     width: 50vw;
-    height: 50vw;
+    height: 52vw;
   }
 
   #optional-dl-btn {
