@@ -106,6 +106,10 @@
   #repo-link-container {
     margin-bottom: 1.6vw;
   }
+
+  #repo-list-container {
+    /* border: 1px solid blue; */
+  }
 }
 
 @media screen and (max-width: 490px) {
@@ -121,10 +125,14 @@
 
   #repo-link-container {
     margin-bottom: 2.6vw;
-    width: 100%;
+    width: 90%;
   }
 
   #repo-section {
-    width: 100%;
+    width: 100vw;
+  }
+
+  #repo-list-container {
+    width: 100vw;
   }
 }
