@@ -382,7 +382,7 @@
 /* WHITE CHANNEL TEXT */
 #channel-text {
   position: absolute;
-  top: .7vw;
+  top: -1vw;
   right: 2.6vw;
   font-size: 3vw;
   color: rgb(251, 251, 251);

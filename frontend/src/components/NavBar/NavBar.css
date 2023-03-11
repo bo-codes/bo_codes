@@ -13,7 +13,7 @@
 
 #list-div {
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
   /* padding: .5vw 4vw; */
   /* border: 1px solid green; */
   width: 100%;
@@ -21,7 +21,7 @@
 
 #navbar-list {
   height: 1vw;
-  width: 60vw;
+  width: 36vw;
   display: flex;
   justify-content: space-between;
   /* border: 1px solid orange; */
@@ -29,7 +29,7 @@
 }
 
  li {
-  font-size: 1.9vw;
+  font-size: 1vw;
   font-family: "adaptive-mono", monospace;
   letter-spacing: 1.2px;
   list-style-type: none;
@@ -42,8 +42,9 @@
 }
 
 #navbar-list li:hover {
+  color: white;
   z-index: 3;
-  opacity: 65%;
+  opacity: 67%;
   filter: blur(.4px);
   text-shadow:
       0 0 8px rgba(255, 255, 255, 0.519),
@@ -53,21 +54,47 @@
       0 0 32px rgb(255, 255, 255);
   /* cursor: pointer; */
 }
+#navbar-home {
+  opacity: 65%;
+}
+
+#navbar-home:hover {
+  z-index: 3;
+  opacity: 66%;
+  filter: blur(.4px);
+  text-shadow:
+    0 0 8px rgba(255, 255, 255, 0.745),
+    0 0 8px rgba(255, 255, 255, 0.583),
+    0 0 8px rgba(255, 255, 255, 0.677),
+    0 0 8px rgba(255, 255, 255, 0.741),
+    0 0 12px rgb(255, 255, 255);
+}
+
 
 @media screen and (min-width: 749px) {
   li{
-    font-size: 1.4vw;
+    font-size: 1.6vw;
   }
 }
 
 @media screen and (min-width: 1200px) {
   li{
-    font-size: 1vw;
+    font-size: 1.2vw;
   }
 }
 
 @media screen and (max-width: 750px) {
-  ul{
+  #navbar-list {
+    width:40vw;
+    /* justify-content: space-between; */
+    /* border: 1px solid blue; */
+  }
+
+  #list-div {
     width: 100%;
+  }
+
+  li {
+    font-size: 2vw;
   }
 }
