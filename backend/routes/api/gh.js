@@ -3,6 +3,7 @@ require("dotenv").config();
 const asyncHandler = require("express-async-handler");
 const { fetchDataForAllYears } = require("../../fetch");
 const { Octokit } = require("@octokit/core");
+const { deepStrictEqual } = require("assert");
 // TESTING TO SEE IF WE HAVE ACCESS TO .ENV FILE
 // const test = require("dotenv").config();
 // console.log(process.env.GH_AUTH, "TEST");
@@ -20,6 +21,7 @@ router.get(
     // let currData = {...data, contributions:await data.contributions.filter((contribution) => {
     //   return contribution.date.slice(0, 4) == '2023'
     // })}
+    // let currData = {...data, contributions:await data.contributions.slice(0, data.contributions.length / 2)}
     // console.log(currData)
     // ------------ THIS RETURNS JUST THIS YEAR'S CONTRIBUTIONS ------------ ^^
     // res.setHeader("Cache-Control", "s-maxage=3600, stale-while-revalidate");
