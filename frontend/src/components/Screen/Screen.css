@@ -384,7 +384,7 @@
   position: absolute;
   top: -1vw;
   right: 2.6vw;
-  font-size: 3vw;
+  font-size: 3.9vw;
   color: rgb(251, 251, 251);
   text-shadow:
       0 0 5px rgba(255, 255, 255, 0.771),
@@ -413,5 +413,12 @@
 
   #screen::after {
     height: 40vw;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  #channel-text {
+    top: -31px;
+    font-size: 3vw;
   }
 }
