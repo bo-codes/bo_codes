@@ -38,7 +38,7 @@ function App() {
           return;
         }
 
-        section.classList.remove("section-animation");
+        // section.classList.remove("section-animation");
       });
     });
 
