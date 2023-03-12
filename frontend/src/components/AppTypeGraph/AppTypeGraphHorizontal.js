@@ -11,7 +11,10 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import detect from "detect.js";
 import './AppTypeGraphHorizontal.css'
+
+const user = detect.parse(navigator.userAgent);
 
 ChartJS.register(
   CategoryScale,
@@ -77,7 +80,7 @@ const AppTypeGraphHorizontal = () => {
           label: "Applications Made",
           data: [...Object.values(finalTypesList)],
           backgroundColor: "rgba(203, 203, 203, 0.5)",
-          barThickness: 40,
+          barThickness: user.browser.family.includes("Mobile") ? 30 : 40,
           responsive: true,
           maintainAspectRation: false,
         },
