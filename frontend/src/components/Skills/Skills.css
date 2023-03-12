@@ -13,6 +13,10 @@
   /* border: 1px solid green; */
 }
 
+#indiv-skill:hover {
+  opacity: 75%;
+}
+
 .indiv-skill {
   width: 50px;
   height: auto;

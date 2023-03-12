@@ -145,12 +145,7 @@ function AboutPage({ isLoading, loading }) {
           )}
         </div>
       </div>
-      <div className="section-wrapper">
-        <div className="section" id="skills-container">
-          <div id="skills-title">Skills</div>
-          <Skills />
-        </div>
-      </div>
+      <Skills />
     </>
   );
 }
