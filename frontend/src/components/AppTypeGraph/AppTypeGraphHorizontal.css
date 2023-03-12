@@ -20,8 +20,6 @@
 
 .chart-horizontal {
   /* border: 1px solid orange; */
-  border-bottom: 1.4px solid rgba(128, 128, 128, 0.497);
-  border-top: 1.4px solid rgba(128, 128, 128, 0.497);
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -40,6 +38,8 @@
     margin-top: 4vw;
     padding: 4vw 0;
     width: 100vw;
+    border-bottom: 1.4px solid rgba(128, 128, 128, 0.497);
+    border-top: 1.4px solid rgba(128, 128, 128, 0.497);
     /* height: 100vw; */
   }
   #bar-chart-horizontal {
