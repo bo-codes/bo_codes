@@ -1,5 +1,5 @@
 #bar-chart-container {
-  /* border: 1px solid blue; */
+  border: 1px solid blue;
   border-left: 1.4px solid rgba(128, 128, 128, 0.497);
   /* position: relative; */
   padding-left: 1.4vw;
@@ -17,7 +17,7 @@
 }
 
 .chart {
-  width: 100%;
+  width: 44.5vw;
   overflow:hidden
 }
 

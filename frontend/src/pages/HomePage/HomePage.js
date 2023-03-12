@@ -1,4 +1,6 @@
-import GithubSection from "./GithubSection/GithubSection"
+import AppTypeGraph from "../../components/AppTypeGraph/AppTypeGraphVertical";
+import LanguagesGraph from "../../components/LanguagesGraph/LanguagesGraph";
+import GithubSection from "./GithubSection/GithubSection";
 import "./HomePage.css";
 // import detect from "detect.js"
 // const user = detect.parse(navigator.userAgent)

@@ -9,6 +9,7 @@
   /* border: 1px solid green; */
   width: 70vw;
   min-height: 200px;
+  height: 100%;
 }
 
 #gh-loading{

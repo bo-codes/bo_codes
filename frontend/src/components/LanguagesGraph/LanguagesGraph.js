@@ -108,6 +108,8 @@ const LanguagesGraph = () => {
               // borderColor: "rgba(255, 99, 132, 1)",
               color: "white",
               borderWidth: 1,
+              responsive: true,
+              maintainAspectRation: false,
             },
           ],
         };
@@ -125,6 +127,8 @@ const LanguagesGraph = () => {
 
   // ----------- SETTING THE LINES ON THE GRAPH TO BE THE COLOR BELOW ----------- vv
   const chartOptions = {
+    responsive: true,
+    maintainAspectRation: false,
     scales: {
       r: {
         grid: {
@@ -139,11 +143,14 @@ const LanguagesGraph = () => {
   // ----------- SETTING THE LINES ON THE GRAPH TO BE THE COLOR BELOW ----------- ^^
 
   return (
-    <div id="radar-chart-container">
+    <div id="radar-chart-section">
       {languageData && (
         <>
-          <div id="radar-chart">
-            <Radar data={languageData.logged} options={chartOptions} />
+          <div
+            id="radar-chart-container"
+            style={{ position: "relative", height: "100%" }}
+          >
+            <Radar data={languageData.logged} options={chartOptions} id="radar-chart"/>
           </div>
           <div id="chart-raw-metrics-container">
             <div id="chart-raw-metrics">

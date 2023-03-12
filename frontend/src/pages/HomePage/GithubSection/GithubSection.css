@@ -1,16 +1,20 @@
 #github-section-container {
   /* border: 1px solid pink; */
+  box-sizing: border-box;
   display: flex;
   font-family: "adaptive-mono", monospace;
   letter-spacing: 1.2px;
   list-style-type: none;
   text-shadow: 0 0 0.5px rgb(255 255 255 / 57%), 0 0 1px rgb(255 255 255 / 60%), 0 0 1px rgb(255 255 255 / 60%), 0 0 2px rgb(255 255 255 / 53%), 0 0 2px rgb(255 255 255);
-  padding: 2vw;
+  /* padding: 2vw; */
+  width: 100%;
+  /* height: fit-content; */
+  /* height: 33vw; */
+  flex-wrap: wrap;
 }
 
 @media screen and (max-width: 860px) {
   #github-section-container {
-    flex-wrap: wrap;
     padding: 0;
   }
 }
@@ -18,10 +22,6 @@
 @media screen and (min-width: 860px) {
   #gh-content {
     width: 60vw;
-  }
-
-  #repo-link-container {
-    margin-bottom: 1.4vw;
   }
 }
 

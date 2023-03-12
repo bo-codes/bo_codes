@@ -11,7 +11,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import './AppTypeGraph.css'
+import './AppTypeGraphHorizontal.css'
 
 ChartJS.register(
   CategoryScale,
@@ -22,7 +22,7 @@ ChartJS.register(
   Legend
 );
 
-const AppTypeGraph = () => {
+const AppTypeGraphHorizontal = () => {
 
   const [appType, setAppType] = useState(null);
 
@@ -78,8 +78,8 @@ const AppTypeGraph = () => {
           data: [...Object.values(finalTypesList)],
           backgroundColor: "rgba(203, 203, 203, 0.5)",
           barThickness: 40,
-          responsive: false,
-          maintainAspectRation: true,
+          responsive: true,
+          maintainAspectRation: false,
         },
       ],
     };
@@ -88,18 +88,21 @@ const AppTypeGraph = () => {
   }
 
   const options = {
-    responsive: true,
-    maintainAspectRation: false,
-    plugins: {
-      legend: {
-        position: "top",
-      },
-      title: {
-        display: true,
-        text: "Application Types",
-      },
+  indexAxis: 'y',
+  elements: {
+    bar: {
+      borderWidth: 2,
     },
-  };
+  },
+  responsive: true,
+  maintainAspectRation: false,
+  plugins: {
+    title: {
+      display: true,
+      text: 'Application Types',
+    },
+  },
+};
 
 
   useEffect(() => {
@@ -108,10 +111,10 @@ const AppTypeGraph = () => {
 
 
   return (
-    <div className='chart'>
-      <div id='bar-chart-container' style={{position: 'relative', width: '100%', height: '100%'}}>
+    <div className='chart-horizontal'>
+      <div id='bar-chart-container-horizontal' style={{position: 'relative', height: '100%'}}>
         { appType && (
-        <Bar options={options} data={appType} id='bar-chart'/>
+        <Bar options={options} data={appType} id='bar-chart-horizontal'/>
         )}
       </div>
     </div>
@@ -119,4 +122,4 @@ const AppTypeGraph = () => {
 }
 
 
-export default AppTypeGraph;
+export default AppTypeGraphHorizontal;
