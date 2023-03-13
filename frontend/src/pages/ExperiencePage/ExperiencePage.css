@@ -1,13 +1,37 @@
-#experiencepage-text {
-  /* height: 100%;
-  width: 100%; */
+#experience-section {
+  /* border: 1px solid orange; */
+  /* height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  /* border: 1px solid red; */
+  align-items: center; */
 }
 
-#experiencepage-experience {
-  font-size: 12vw;
+/* #experience-container {
+  height: 90%;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+} */
+
+/* .vertical-timeline-element--work {
+  font-family: "adaptive-mono", monospace;
+  letter-spacing: 1.2px;
+  text-shadow: 0 0 0.5px rgb(255 255 255 / 57%), 0 0 1px rgb(255 255 255 / 60%), 0 0 1px rgb(255 255 255 / 60%), 0 0 2px rgb(255 255 255 / 53%), 0 0 2px rgb(255 255 255);
+  height: 28%;
 }
+
+.timeline {
+  stroke-width: 1px;
+  border-width: 1px;
+  outline-width: 1px;
+}
+
+.vertical-timeline.vertical-timeline-custom-line::before {
+  background: #424242;
+  background-size: .5px;
+  height: 100%;
+}
+
+.vertical-timeline.vertical-timeline-custom-line .vertical-timeline-element--work .vertical-timeline-element-icon {
+  box-shadow: 0 0 0 4px #1976d200, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+} */
