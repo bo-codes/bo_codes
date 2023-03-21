@@ -3,7 +3,7 @@ import "./Timeline.css"
 
 const timelineData = [
   {
-    text: "BFA in Concept Design",
+    text: "BFA in Concept Design - CSULB",
     date: "August 2016 - December 2021",
     category: {
       tag: "Education",
@@ -15,7 +15,7 @@ const timelineData = [
     // },
   },
   {
-    text: "Intern Engineer",
+    text: "Intern Engineer - Pankow",
     date: "June 2019 - August 2021",
     category: {
       tag: "Work",
