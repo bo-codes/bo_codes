@@ -94,7 +94,7 @@ function App() {
     case "/":
       if (loading || isLoading) {
         {
-          user.browser.family == "Safari" ||
+          user.browser.family === "Safari" ||
           user.browser.family.includes("Mobile")
             ? (currScreen = <div className="altstatic"></div>)
             : (currScreen = <div className="static"></div>);
@@ -106,7 +106,7 @@ function App() {
     default:
       if (loading || isLoading) {
         {
-          user.browser.family == "Safari" ||
+          user.browser.family === "Safari" ||
           user.browser.family.includes("Mobile")
             ? (currScreen = <div className="altstatic"></div>)
             : (currScreen = <div className="static"></div>);
@@ -134,7 +134,7 @@ function App() {
         <Route path="/skills" exact={true} element={<SkillsPage />} />
         <Route
           path="/projects"
-          exact={true}
+          // exact={true}
           element={<ProjectsPage loading={loading} />}
         />
         <Route path="/contact" exact={true} element={<ContactPage />} />

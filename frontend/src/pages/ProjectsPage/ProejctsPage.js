@@ -1,11 +1,17 @@
+import ProjectList from "../../components/ProjectList/ProjectList";
 import "./ProjectsPage.css";
 
 function ProjectsPage({ loading }) {
   return (
-    !loading && (
-      <div id="projects-page-container">
+    <div className="section-wrapper">
+      <div className="section">
+        {!loading && (
+          <div id="projects-page-container">
+            <ProjectList />
+          </div>
+        )}
       </div>
-    )
+    </div>
   );
 }
 
