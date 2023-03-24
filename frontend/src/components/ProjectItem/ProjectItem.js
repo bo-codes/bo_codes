@@ -2,7 +2,7 @@
 
 const ProjectItem = ({data}) => {
   return (
-    <div id="indiv-project">
+    <a id="indiv-project" href={data.link} target='_blank'>
       <div id="project-container">
         <div id="project-content">
           <div id="project-name-and-comp">
@@ -12,7 +12,7 @@ const ProjectItem = ({data}) => {
           <img id="project-img" src={data.img}/>
         </div>
       </div>
-    </div>
+    </a>
   )
 }
 

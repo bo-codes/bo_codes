@@ -18,8 +18,15 @@
   /* border: 1px solid pink; */
   display: flex;
   justify-content: center;
-  background-color: rgba(128, 128, 128, 0.445);
+  background-color: #6464647f;
   width: 390px;
+  text-decoration: none;
+}
+
+#indiv-project:hover {
+  transition: all .15s ease-in-out;
+  transform: translateY(-8px);
+  cursor: pointer;
 }
 
 #project-container {
@@ -40,11 +47,20 @@
 }
 
 #project-name {
-  border: 1px solid green;
+  /* border: 1px solid green; */
+  color: rgba(255, 255, 255, 0.737);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
 }
 
 #project-company {
-  border: 1px solid salmon;
+  color: white;
+  background-color: rgb(19, 18, 77);
+  font-family: "adaptive-mono", monospace;
+  letter-spacing: 1.2px;
+  padding: 4px;
 }
 
 #project-img {

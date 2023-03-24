@@ -5,9 +5,24 @@ import gestalt3dImg from "../../img/portfolio/3.png"
 
 const ProjectList = () => {
   const projects = [
-    { name: "Bobogram", img: eventzeitImg, company: "Personal" },
-    { name: "Eventzeit", img: bobogramImg, company: "Personal" },
-    { name: "Gestalt3D", img: gestalt3dImg, company: "Gestalt 3D Technologies" },
+    {
+      name: "Bobogram",
+      img: eventzeitImg,
+      company: "Personal",
+      link: "https://bobo-gram.herokuapp.com/",
+    },
+    {
+      name: "Eventzeit",
+      img: bobogramImg,
+      company: "Personal",
+      link: "https://eventzeit.onrender.com/",
+    },
+    {
+      name: "Gestalt3D",
+      img: gestalt3dImg,
+      company: "Gestalt 3D",
+      link: "https://gestalt3d.com/",
+    },
     // { name: "Almira Akin", img: "", company: "Almira Akin" },
   ];
 
