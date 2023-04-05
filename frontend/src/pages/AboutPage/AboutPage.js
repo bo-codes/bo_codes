@@ -1,6 +1,6 @@
 import aboutPhoto from "../../img/about/about-2.jpg";
 import { SiLinkedin, SiGithub, SiAngellist } from "react-icons/si";
-import pdf from "../../img/Elias_Rodriguez-Resume-SWE.pdf";
+import pdf from "../../img/Elias_Rodriguez-Resume.pdf";
 import "./AboutPage.css";
 import Skills from "../../components/Skills/Skills";
 
